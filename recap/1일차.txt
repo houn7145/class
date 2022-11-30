@@ -1,0 +1,39 @@
+자바 프로그램 - jdk 설치(운영체제에 맞는 jdk 설치)
+
+java 환경변수 설정
+내PC 오른쪽 마우스 – 속성 - 고급시스템설정 - 환경변수
+시스템변수 새로만들기-변수이름 : JAVA_HOME  / 변수값 : JDK가 설치된 폴더
+Path에 %JAVA_HOME%\bin; 추가
+
+이클립스
+이클립스 다운로드(java 버전에 맞는 이클립스 버전 설치)
+첫문자는 무조건 대문자, 주석 사용(//)
+
+깃허브 
+깃허브 사용을 위해 git-scm 다운 후 git bash 실행
+
+git config --global user.name “깃허브 아이디”
+> git config --global user.email “깃허브 메일”
+> git config --list (확인)
+
+.gitignore(업로드 않을 파일 이름 쓰기)
+
+> git init (초기화)
+> git add . (공유 추가할 파일 더하기)
+> git status (상태 확인 – 선택)
+> git commit –m “first commit” (히스토리 버전 이름)
+> git branch –M main (branch 생성 – branch 생성을 하지 않을 경우 master로)
+> git remote add origin 본인깃주소 (연결고리)
+> git remote –v (확인 – 선택)
+> git push –u origin main (branch에 올리기 branch를 생성하지 않았다면
+master)
+
+추가 파일 올리기
+> git add . 
+> git commit –m “second”
+> git push –u origin main
+
+추가한 파일 수정
+> git add . 
+> git commit –m “third”
+> git push –u origin main

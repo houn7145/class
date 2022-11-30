@@ -4,7 +4,7 @@ public class Ex09while {
 	public static void main(String[] args) {
 		int tot = 0;
 		int i = 0;
-		while(++i <= 100) {
+		while( ++i <= 100) {
 			if(i%3 == 0) {
 				tot += i;
 			}
@@ -15,5 +15,4 @@ public class Ex09while {
 		}
 		System.out.println(tot);
 	}
-
 }

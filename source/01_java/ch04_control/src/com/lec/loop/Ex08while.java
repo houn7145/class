@@ -1,5 +1,6 @@
 package com.lec.loop;
-
+/* 	i가 1일 때 누적합은 1이다
+i가 10일 때 누적합은 55이다 */
 public class Ex08while {
 	public static void main(String[] args) {
 		int tot = 0; //누적합을 저장하기 위한 변수

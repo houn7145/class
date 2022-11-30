@@ -1,12 +1,12 @@
 package com.lec.conditionQuiz;
-
+// 가위바위보 중 하나를 내고 낸 것을 출력하세요(가위대신 0, 바위대신 1, 보대신 2를 입력)
 import java.util.Scanner;
 
 public class Quiz3 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("가위(0), 바위(1), 보(2)중 하나를 선택하세요 :");
-		int you = scanner.nextInt();
+		System.out.print("가위(0), 바위(1), 보(2)중 하나를 선택하세요 :");
+		int you = scanner.nextInt(); // 0, 1, 2
 		if(you == 0) {
 			System.out.println("당신은 가위");
 		}else if(you == 1) {
@@ -16,6 +16,6 @@ public class Quiz3 {
 		}else {
 			System.out.println("유효하지 않는 값입니다");
 		}
-	
+		scanner.close();
 	}
 }

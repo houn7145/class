@@ -1,5 +1,5 @@
 package com.lec.conditionQuiz;
-
+// 두 수 중 큰 수를 변수 max에 입력하고 변수 max를 출력
 public class Quiz2 {
 	public static void main(String[] args) {
 		int num1 = 27;

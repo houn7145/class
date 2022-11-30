@@ -8,9 +8,9 @@ public class Ex05_switch_hakjum {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("점수는?");
 		int score = sc.nextInt();
-		int temp = (score==100) ? score-1 : score ;
-		switch(temp/10) {
-		case 9:
+		int temp = (score==100) ? score-1 : score ;// 
+		switch(temp/10) { // 4byte여서 소수여도 정수로 계산
+		case 9: 
 			System.out.println("A학점");break;
 		case 8:
 			System.out.println("B학점");break;

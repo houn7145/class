@@ -8,11 +8,10 @@ public class Ex06 {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("정수를 입력하세요: ");
 		int num = scanner.nextInt();
-		switch (num%2) {
-		case 0:
-			System.out.println("짝수입니다");break;
-		default:
-			System.out.println("홀수입니다");break;
+		if(num%2==0) {
+			System.out.println("짝수입니다");
+		}else {
+			System.out.println("홀수입니다");
 		}
 	}
 }

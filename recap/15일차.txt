@@ -1,0 +1,66 @@
+예외(Exception) 처리
+- 문제 없을 것 같은 프로그램도 외부환경요인 등에 의해서 문제가 발생함
+프로그램에서 문제가 발생될 만한 곳을 예상하여 사전에 "문제가 발생하면 이렇게 해라" 라고 프로그래밍 하는 것
+
+예외처리는 보험이다.
+예외가 발생 했을 때 프로세스가 죽지 않게 예외처리를 자체적으로 처리할 수도 있고(try~catch)
+내가 처리 안하고 나를 부른 곳에서 알아서 할테니 그냥 던져 버릴 수도 있음(throws)
+
+예외처리 문법(try ~ catch)
+
+try { try블럭 ; 익셉션이 발생할 가능성이 있는 명령문들(문제가 발생할 수 있는 로직을 기술)
+
+	}catch(익셉션타입 익셉션변수) {
+	    그 익셉션을 처리하는 명령문(try블록안에서 문제가 발생했을 때 대처방안 기술);
+
+	} finally {
+	    익셉션 발생 여부와 상관없이 맨 마지막에 실행할 명령문;
+	}
+
+catch문에 여러개의 예외처리도 가능 
+
+try {  try블럭 ; 익셉션이 발생할 가능성이 있는 명령문들
+	}catch(ArrayIndexOutOfBoundsException a) {
+	    ArrayIndexOutOfBounds 익셉션을 처리하는 명령문
+	} catch(NumberFormatException n) {
+	    NumberFormat 익셉션을 처리하는 명령문
+	} catch(Exception e) {
+	    그 외 익셉션을 처리하는 명령문
+	} finally {
+	    익셉션 발생 여부와 상관없이 맨 마지막에 실행할 명령
+	}
+
+예외처리 문법(throws)
+try ~ catch 예외 처리 방법은 예외가 발생했을 때 자체적으로 catch문을 이용해서 해결
+throws의 경우에는 나를 호출한(실행시키는) 쪽으로 예외를 던져버리는 방식
+
+ArrayIndexOutOfBoundsException > 배열을 사용시 존재하지 않는 index값을 호출하면 발생
+NullPointerException > 존재하지 않는 객체를 가리킬 때 발생
+NumberFormatException > 숫자로 변경할 수 없는 문자열을 변경하려고 할 때 발생
+
+강제로 예외 발생시키기(코드에서 예외 발생시키기)
+throw new Exception(“에러메세지”);
+
+Java Collection
+- ArrayList : 배열과 매우 비슷. 인덱스가 존재하며 데이터는 중복을 허용
+
+ArrayList 메소드
+add(객체)
+add(index, 객체)
+set(index, 객체)
+get(index)
+size()
+remove(index)
+remove(객체)
+contains(객체) (주어진 객체가 저장되어 있는지 여부를 boolean 값으로 반환)
+isEmpty()
+clear()
+
+LinkedList
+- ArrayList와 거의 비슷하며 ArrayList는 접근시간(읽어오는데 걸리는) 시간은 빠르나 데이터를 추가하거나 삭제하는데 많은 데이터를 옮겨야 해서 시간이 많이 걸린다는 단점이 있음
+이점을 보완한 LinkedList. ArrayList와 달리 불연속적으로 존재하는 데이터를 연결
+순차적으로 데이터를 추가/삭제할 경우 ArrayList가 빠르고 
+비순차적으로 데이터를 추가/삭제하는 경우 LinkedList가 빠름
+접근시간도 ArrayList가 빠름
+
+

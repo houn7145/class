@@ -1,0 +1,56 @@
+Calendar와 GregorianCalendar API
+- 날짜와 시간을 표현할 때 사용하는 클래스
+
+문법
+int year = now.get(Calendar.YEAR);
+int month = now.get(Calendar.MONTH)+1;
+int day = now.get(Calendar.DAY_OF_MONTH);
+int week = now.get(Calendar.DAY_OF_WEEK); // 1:일, 2:월, 3:화....7:토
+int hour24 = now.get(Calendar.HOUR_OF_DAY); // 24시간
+int hour = now.get(Calendar.HOUR); // 12시간
+int ampm = now.get(Calendar.AM_PM); // 0:오전, 1:오후
+int minute = now.get(Calendar.MINUTE);
+int second = now.get(Calendar.SECOND);
+int milliSec = now.get(Calendar.MILLISECOND);
+
+%tY(년), %tm(월), %td(일), %ta(요일), %tH(24시간), %tp(오전/오후), %tl(12시간), %tM(분), %tS(초) 
+
+수학적 계산에 사용되는 클래스 Math
+
+2의 3승 : Math.pow(2, 3)
+-9.9의 절대값 : Math.abs(-9.9)
+16의 제곱근 : Math.sqrt(16)
+4와 7중에 작은값 : Math.min(4, 7)
+7과 9중 최대값 : Math.max(7, 9)
+
+소숫점에서 반올림, 올림, 버림
+9.12의 올림 : Math.ceil(9.12)
+9.69의 반올림 : Math.round(9.69))
+9.69 버림 : Math.floor(9.69))
+
+소숫점 한자리에서 반올림, 올림, 버림
+9.12의 올림 : Math.ceil(9.12*10)/10)
+9.69의 반올림 : Math.round(9.69*10)/10.0)
+9.69 버림 : Math.floor(9.69*10)/10)
+
+십의 자리에서 반올림, 올림, 버림
+11의 올림 : Math.ceil(11/10.0)*10)
+19의 반올림 : Math.round(19/10.0)*10)
+19 버림 : Math.floor(19/10.0)*10)	
+
+난수 발생이 쉬운 Random 클래스 Math.random()
+댜양한 랜덤 숫자를 구하는 작업을 제공
+
+
+
+
+
+
+
+
+
+
+
+
+
+

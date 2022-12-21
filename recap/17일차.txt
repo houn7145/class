@@ -1,0 +1,55 @@
+자바 파일 입출력(i/o)
+
+- InputStream 사용법
+InputStream(추상) 클래스를 상속받은 여러 가지 API 하위 클래스 중의 하나를 이용해서 객체를 만듦
+또는 다른 클래스의 메소드에서 반환되는 타입 객체를 얻음
+
+read(), read(byte[]) 두 개의 메소드를 이용하여 데이터를 읽음
+read() 1byte씩 읽음(속도가 느림)
+read(byte[]) byte[]만큼씩 읽음 (속도가 빠름)
+
+
+예외 처리와 무조건 close() 실행
+I/O를 하면서 반드시 해야 하는 예외처리가 있음 -> IOException 컴파일러가 반드시 하도록 강요
+I/O 작업 마지막은 close()로 외부 연결을 끝내야 함
+
+- OutputStream 사용법
+OutputStream(추상) 클래스를 상속받은 여러가지 API 하위 클래스들 중의 하나를 이용해서 객체를 만듦
+또는 다른 클래스의 메소드에서 반환(리턴)되는 타입 객체를 얻음
+
+write()메소드를 이용해서 데이터를 읽음
+write(int), write(byte[]), write(byte[], int, int) 세개의 메소드를 이용할 수 있음
+
+예외 처리와 무조건 close() 실행
+I/O를 하면서 반드시 해야 하는 예외처리가 있음 -> IOException 컴파일러가 반드시 하도록 강요
+I/O 작업 마지막은 close()로 외부 연결을 끝내야 함
+
+
+- 보조 stream
+DataInputStream / DataOutputStream (데이터를 외부에서 읽지 못하도록 만듦)
+BufferedReader / BufferedWriter (입력된 데이터가 바로 전달되지 않고 버퍼를 거쳐 전달되므로 데이터 처리 효율성을 높임)
+PrintWriter (개체의 형식화된 표현을 텍스트 출력 stream에 출력), 보조 stream이지만 단독으로 사용 가능
+
+
+파일 읽고 쓰기
+읽고, 쓰기를 동시에 – 파일 복사
+
+작업순서 : InputStream, OutputStream 준비 > is로 읽어들인 데이터를 os으로 씀 > 외부연결 close()함
+read() : read(), read(byte[]) 등 다양한 메소드 이용 가능
+write() : write(byte), write(byte[]), (write(byte[], int, int) 등 다양한 메소드 이용 가능
+
+
+- 생성/삭제 메소드
+File file = new File(“경로명/파일명”); 논리적인 파일이나 디렉토리
+exists() : 현재 파일이나 디렉토리가 있는지 여부
+delete() : 파일 또는 디렉토리 삭제
+
+- 정보 메소드
+canExecute() : 실행할 수 있는 파일인지 여부
+getName() :  파일이름
+getPath() :  전체 경로
+isFile(), isDirectory() : 파일/디렉토리 인지 여부
+length() : 파일 크기
+list() : 디렉토리인 경우 포함된 파일의 문자열 배열
+listFiles() : 디렉토리인 경우 포함된 파일을 배열로
+

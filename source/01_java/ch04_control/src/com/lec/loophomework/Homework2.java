@@ -1,7 +1,7 @@
-package com.lec.loop;
+package com.lec.loophomework;
 import java.util.Scanner;
 // you가 질 때까지 반복
-public class Homework2_srp {
+public class Homework2 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int you, computer;

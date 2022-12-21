@@ -1,0 +1,27 @@
+API
+Scanner - 키보드에서 타이핑하는 문자열 또는 입출력 프로그래밍에서 값을 읽어올 때 사용
+Scanner scanner = new Scanner(System.in);
+
+Wrapper 클래스
+- 기초데이터를 객체데이터로 변환시키는 클래스
+
+       기초 데이터	          객체 데이터
+	byte       -> 	Byte
+	short	->	Short
+	int	->	Integer
+	long	->	Long
+	float	->	Float
+	double	->	Double
+	boolean	->	Boolean
+	char	->	Character
+
+Timer 클래스
+- 자바에서의 타이머는 2가지이며
+일정한 시간마다 작동되는 타이머와 일정한 시간이 되면 한번 실행되는 타이머가 있음
+
+Timer객체는 일정한 시간이 되면 TimerTask객체가 작동되도록 하거나 일정시간마다 TimerTask객체가 작동
+단 TimerTask클래스는 추상클래스이므로 TimerTask클래스를 상속받는 클래스를 만들어서 사용
+
+Decimalformat과 Pattern
+- 숫자 자리에 # : (있으면 출력, 없으면 출력안함) 0 : (반드시 출력)
+.(소수점) ,(세자리마다) %, E(지수형. 0.00012=>1.2E-4)

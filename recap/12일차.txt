@@ -1,0 +1,80 @@
+API
+- JDK 라이브러리에서 많은 패키지를 제공
+AVA는 개발자들이 편리하게 이용할 수 있는 풍부한 클래스들이 많음
+이러한 클래스들을 이용해서 개발자들은 깊은 지식이 없이 그냥 사용만 하면 되고
+이러한 기능들을 정의해 둔 클래스들을 API(Application Programming Interface)라고 함
+API란 누군가가 만들어 놓은 기능들이라고 생각하면 됨
+
+java.lang : 자바프로그램의 기본적인 기능을 제공 
+명시적으로 지정하지 않아도 모든 자바 프로그램에 포함되는 패키지 	
+java.lang.String나 java.lang.Exception은 모두 java.lang.을 생략 가능
+java.util :  유용한 유틸리티 클래스를 제공
+java.io : 입출력 기능을 제공하는 패키지
+java.awt : 그래픽 유저인터페이스(GUI)를 구축하기 위한 다양한 컴포넌트를 제공하는 패키지
+java.awt.event : awt컴포넌트들의 이벤트를 제어하는 패키지
+
+문자열에 관련된 대표적 클래스 : String
+
+- String은 객체 자료형이며 우리가 문자열을 사용하면서 아래와 같이 사용함
+String str = “HelloWorld”;
+String은 대문자로 시작하므로 기초데이터가 아닌 객체데이터임
+다만 뒤에 생성자(new)를 사용하지 않고 기초데이터를 만들 때처럼 초기화가 가능
+
+String의 주요 기능들(메소드)
+String concat(String str) : 저장된 문자열과 str문자열을 결합
+String substring(int begin) : 시작위치부터 마지막까지의 문자열을 반환
+int length() : 문자열 길이를 반환
+String toUpperCase() : 대문자로 반환
+String toLowerCase() : 소문자로 반환
+char charAt(int index) : index 위치의 문자를 반환
+int indexOf(char ch) : 첫번째 ch문자의 위치를 반환
+int lastIndexOf(char ch) : 마지막 ch문자의 위치를 반환
+boolean equals(String str) : 지정된문자열과 str문자열이 같은지 비교
+boolean equalslgnoreCase(String str) : 대소문자구분없이 지정된문자열과 str문자열이 같은지 비교
+String trim() : 문자열 앞뒤 공백제거
+String replace(char old, char new) : 문자열 내의 old문자를 new문자로 반환
+String  repalceAll(String old, String new) : 문자열 내의 정규표현식 문자열을 new로 반환
+
+String의 단점
+- String객체의 경우 처음 초기화된 데이터에 변화가 생기면 기존 것을 재활용하지 않고 
+기존의 것은 버리고 새로운 메모리를 이용함
+고로 메모리를 과소비
+
+StringBuffer & StringBuilder
+- String의 단점을 보완하고자 나온 클래스
+이 클래스들은 모두 객체 내부에 있는 버퍼(buffer, 데이터를 임시로 저장하는 메모리)에 문자열의 내용을 저장해 두고 
+그 안에서 추가, 수정, 삭제 작업을 함
+때문에 이 클래스들은 이용하면 새로운 객체를 만들지 않고도 문자열 조작을 할 수 있음
+
+StringBuilder 주요 기능(메소드)
+
+append(String str) : 문자열 str 추가
+insert(int index, String str) : 특정 index에 문자열 str 추가
+delete(int start, int end) : index위치 start부터 end앞 까지 삭제
+deleteCharAt(int index) : index위치의 특정 문자 하나 삭제
+int capacity() : 문자열 크기 반환
+ensureCapacity(int size) : 버퍼의 크기를 size만큼 늘리는 메소드
+trimToSize() : 과도한 버퍼 크기를 적당하게 줄이는 메소드
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

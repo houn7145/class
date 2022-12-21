@@ -1,0 +1,22 @@
+추상클래스(abstract)
+- 추상화 시켜놓은 것을 객체를 사용할 사용자가 override(재정의)하여 사용하는 것
+부모클래스에서 자식클래스에게 메소드를 강제로 override(재정의)
+
+문법
+ex01) 추상클래스 public abstract class ClassName {
+} 
+ex02) 추상메소드 abstract String methodName();
+
+제한자(final)
+- 추상클래스와 반대되는 개념
+
+문법
+ex01) 클래스 앞에 붙일 경우 : 상속 금지
+public final class Test { 
+} 
+ex02) 멤버 메소드 앞에 붙일 경우 : 오버라이딩 금지
+public final void print(){
+}
+ex03) 멤버변수 앞에 붙일 경우 : 상수화(변경금지)
+public final int PORT_NUMBER = 80;
+	

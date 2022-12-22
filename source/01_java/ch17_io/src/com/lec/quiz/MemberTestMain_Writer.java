@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class MemberTestMain_Writer {
+public class MemberTestMain_writer {
 	public static void main(String[] args) {
 		ArrayList<Member> members = new ArrayList<>();
 		Date now = new Date();

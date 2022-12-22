@@ -1,0 +1,47 @@
+Select문 가장 많이 쓰이는 DML(데이터 조작 언어) 질의어
+
+SELECT [DISTINCT] {*, column [Alias], ….}
+FROM 데이블명
+[WHERE condition]
+[ORDER BY {column, expression} [ASC|DESC]] ;
+
+SELECT 문장 작성법
+SHOW USER; 
+SELECT * FROM TAB; -- 현 계정이 가지고 있는 테이블 정보
+SELECT * FROM EMP; -- EMP테이블의 모든 열(필드), 모든 행을 출력
+SELECT * FROM DEPT; -- DEPT테이블의 모든 열(필드), 모든 행을 출력
+
+특정 열만 출력
+-- EMP테이블의 구조를 출력
+DESC EMP; 
+
+특정 행만 출력 
+WHERE 절(조건) -- 비교연산자 : 같다(=), 다르다(!=, ^=, <>), >, >=, <, <=
+  -- 비교연산자는 숫자, 문자, 날짜형 모두 비교 가능
+ -- SQL문은 대소문자 구별이 없음, 데이터는 대소문자 구별함
+
+조건절에 논리연산자 : AND, OR, NOT
+
+연결연산자(||) : 필드나 문자를 연결하는데 사용
+
+중복제거(DISTINCT)
+SELECT DISTINCT JOB FROM EMP;
+SELECT DISTINCT DEPTNO FROM EMP;
+
+SQL연산자(BETWEEEN,IN, LIKE, IS NULL)
+-- (1) BETWEEN A AND B : A부터 B까지 (A,B 포함)
+-- (2) IN (10,20,30) : 10이거나 20이거나 30인 경우 출력
+-- (3) LIKE %(0글자 이상, _(한글자)를 포함한 패턴)
+% : 문자가 없거나, 하나 이상의 문자가 어떤 값이 와도 상관없음
+_ : 하나의 문자가 어떤 값이 와도 상관없음
+-- (4) IS NULL(NULL인지를 검색할 때)
+
+정렬(오름차순, 내림차순) : ORDER BY 절
+
+형변환 함수
+-- 날짜형(HIREDATE)을 문자형으로 변환 : TO_CHAR(날짜형데이터, 패턴)
+SELECT TO_CHAR(HIREDATE, 'YYYY-MM-DD') FROM EMP;
+-- 문자형을 날짜형으로 변환 : TO_DATE(문자데이터, 패턴)
+SELECT TO_DATE('01-12-1996', 'MM-DD-YYYY') FROM DUAL; -- DUAL : 연산자 확인용 더미테이블
+
+NVL(NULL일 수도 있는 필드명, 대치값)을 이용 ; 필드명과 대치값은 타입이 일치해야함

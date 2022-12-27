@@ -1,0 +1,39 @@
+JOIN: 2개 이상의 테이블을 연결하여 데이터를 검색
+
+JOIN 결과가 의미를 가지려면 JOIN할 때 조건을 지정,  JOIN 조건에 따라 JOIN의 종류가 결정됨
+
+CROSS JOIN
+CROSS JOIN은 특별한 키워드 없이 다음과 같이 FROM절에 두 개 이상의 테이블을 기술하는 것
+
+EQUI JOIN - 동일한 컬럼을 기준으로 JOIN
+EQUI JOIN은 가장 많이 사용하는 JOIN 방법으로서 
+JOIN 대상이 되는 두 테이블에서 공통적으로 존재하는 컬럼의 값이 일치되는 행을 연결하여 결과를 생성하는 JOIN 방법
+
+ex)
+SELECT * 
+	FROM EMP, DEPT 
+	WHERE EMP.DEPTNO = DEPT.DEPTNO;
+동일한 이름의 컬럼은 반드시 컬럼명 앞에 테이블명을 명시적으로 기술함으로서 컬럼이 어느 테이블 소속인지 구분할 수 있게 함
+
+Non-Equi JOIN - 동일한 컬럼없이 다른 조건을 사용하여 JOIN
+Non-Equi JOIN은 JOIN 조건에 특정 범위 내에 있는지를 조사하기 위해서 WHERE 절에 JOIN 조건을 = 연산자 이외의 비교 연산자를 사용함
+
+ex)
+SELECT * 
+	FROM EMP, SALGRADE 
+   	WHERE SAL >= LOSAL AND SAL <= HISAL AND ENAME = 'SCOTT';
+
+Self JOIN - 한 테이블 내에서 JOIN
+두 개 이상의 서로 다른 테이블을 서로 연결하는 것뿐만 아니라  하나의 테이블 내에서 JOIN을 해야만 원하는 자료를 얻는 경우가 생길때 사용
+
+ex)
+SELECT W.EMPNO, W.ENAME, W.MGR, M.ENAME
+   	FROM EMP W, EMP M
+    	WHERE W.MGR = M.EMPNO;
+
+Outer JOIN - 조인 조건에 만족하지 않는 행도 나타내는 JOIN
+
+ex)
+SELECT WORKER.ENAME, MANAGER.ENAME 
+	FROM EMP WORKER, EMP MANAGER
+	WHERE WORKER.MGR=MANAGER.EMPNO(+) ;

@@ -36,7 +36,7 @@ SQL연산자(BETWEEEN,IN, LIKE, IS NULL)
 _ : 하나의 문자가 어떤 값이 와도 상관없음
 -- (4) IS NULL(NULL인지를 검색할 때)
 
-정렬(오름차순, 내림차순) : ORDER BY 
+정렬(오름차순, 내림차순) : ORDER BY    
 
 형변환 함수
 -- 날짜형(HIREDATE)을 문자형으로 변환 : TO_CHAR(날짜형데이터, 패턴)

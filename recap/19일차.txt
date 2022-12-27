@@ -44,4 +44,4 @@ SELECT TO_CHAR(HIREDATE, 'YYYY-MM-DD') FROM EMP;
 -- 문자형을 날짜형으로 변환 : TO_DATE(문자데이터, 패턴)
 SELECT TO_DATE('01-12-1996', 'MM-DD-YYYY') FROM DUAL; -- DUAL : 연산자 확인용 더미테이블
 
-NVL(NULL일 수도 있는 필드명, 대치값)을 이용 ; 필드명과 대치값은 타입이 일치해야함
+NVL(NULL일 수도 있는 필드명, 대치값)을 이용, 필드명과 대치값은 타입이 일치해야함

@@ -1,0 +1,64 @@
+그룹함수 - 하나 이상의 행을 그룹으로 묶어 연산하여 총합, 평균 등 하나의 결과로 나타냄
+
+SUM : 그룹의 누적 합계
+AVG : 그룹의 평균
+COUNT : 그룹의 총 개수
+MAX : 그룹의 최대값
+MIN : 그룹의 최소값
+STDDEV : 그룹의 표준편차
+VARIANCE : 그룹의 분산
+
+GROUP BY 절
+그룹함수를 쓰되 어떤 컬럼 값을 기준으로 그룹함수를 적용할 경우
+GROUP BY 절 뒤에 해당 컬럼을 기술
+
+GROUP BY 문법
+SELECT 컬럼명, 그룹함수
+	FROM 테이블명
+	WHERE 조건(연산자)
+	GROUP BY 컬럼명;
+GROUP BY절은 컬럼의 별칭을 사용할 수 없음(ORDER BY절은 가능)
+
+HAVING 절 - 그룹함수의 결과 조건
+
+HAVING 문법
+SELECT 컬럼명, 그룹함수
+	FROM 테이블명
+	WHERE 조건(연산자)
+	GROUP BY 컬럼명;
+	HAVING 조건
+
+HAVING 절은 GROUP BY 절 앞에 기술 가능하지만 
+GROUP BY 절 다음에 기술하는 것이 논리적으로 권장
+
+ROLLUP - 결과 집합 내에 집계 값 생성 
+연산자와 함께 GROUP BY 절 사용
+
+SELECT 절에 그룹함수에 포함된다면 GROUP BY 절에 각각의 열이 명시되어야 함
+WHERE 절을 사용하여 행을 그룹으로 나누기 전에 행을 제외
+그룹에 대한 조건은 HAVING 절을 사용(그룹에 대한 조건을 WHERE절에서 기술 불가)
+GROUP BY 절에 열을 포함(열의 별칭은 사용할 수 없음)
+DEFAULT는 GROUP BY 절 다음에 기술된 순서로 오름차순으로 정렬되지만 ORDER BY 절을 이용하여 변경 가능
+
+
+Sub Query :  메인 QUERY(SQL문) 안에 QUERY(SQL문)이 내포
+
+서브 쿼리는 비교 연산자의 오른쪽에 기술하고 반드시 괄호()를 쳐야 함
+서브 쿼리는 메인 쿼리가 실행되기 이전에 한번만 실행
+
+단일행 서브쿼리(서브쿼리의 실행결과가 단일행) 
+사용 가능한 연산자 : (= > >= < <= !=)
+
+단일행 다중열 서브쿼리 
+ex
+SELECT * 
+    FROM EMP
+    WHERE (JOB, DEPTNO) = (SELECT JOB, DEPTNO FROM EMP WHERE ENAME = 'SCOTT')
+        AND ENAME != 'SCOTT';
+
+다중행 서브쿼리(서브쿼리의 실행결과가 2행이상) 
+사용 가능한 연산자 : 
+IN : 메인 쿼리의 비교 조건(‘=’ 연산자로 비교할 경우)이 서브 쿼리의 결과 중에서 하나라도 일치하면 참
+ANY, SOME : 메인 쿼리의 비교 조건이 서브 쿼리의 검색 결과와 하나 이상이 일치하면 참
+ALL : 메인 쿼리의 비교 조건이 서브 쿼리의 검색 결과와 모든 값이 일치하면 참
+EXISTS : 메인 쿼리의 비교 조건이 서브 쿼리의 결과 중에서 만족하는 값이 하나라도 존재하면 참

@@ -166,7 +166,6 @@ SELECT E2.ENAME
     WHERE E1.ENAME = 'SCOTT' AND E1.DEPTNO = E2.DEPTNO AND E2.ENAME != 'SCOTT';
     
 -- SCOTT과 동일한 근무지에서 근무하는 사원의 이름을 출력하시오(2단계 최종문제)
-
 SELECT ENAME 
     FROM EMP E, DEPT D 
     WHERE E.DEPTNO = D.DEPTNO AND ENAME = 'SCOTT';
@@ -277,12 +276,12 @@ SELECT E.ENAME, E.JOB, E.SAL, DNAME
 --3. EMP 테이블에서 보너스를 받는 사원에 대하여 이름,부서명,위치를 출력
 SELECT E.ENAME, DNAME, LOC
     FROM EMP E, DEPT D
-    WHERE E.DEPTNO = D.DEPTNO AND E.COMM > 0;
+    WHERE E.DEPTNO = D.DEPTNO AND COMM > 0;
 
 --4. EMP 테이블에서 이름 중 L자가 있는 사원에 대하여 이름,업무,부서명,위치를 출력
 SELECT E.ENAME, E.JOB, DNAME, LOC
     FROM EMP E, DEPT D
-    WHERE E.DEPTNO = D.DEPTNO AND E.ENAME LIKE '%L%';
+    WHERE E.DEPTNO = D.DEPTNO AND ENAME LIKE '%L%';
 
 --5. 사번, 사원명, 부서코드, 부서명을 검색하라. 사원명기준으로 오름차순정열
 SELECT EMPNO, E.ENAME, E.DEPTNO, DNAME

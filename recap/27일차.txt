@@ -1,0 +1,72 @@
+MySQL
+QL에 기반을 둔 관계형 DBMS 중 하나
+Oracle, IBM, Infomix 등의 데이터베이스는 고가이지만 MySQL 은 무료(배포판)
+리눅스, 유닉스, 윈도우 등 거의 모든 운영체제에서 사용가능
+처리 속도가 상당히 빠르고 대용량의 데이터 처리 용이
+설치방법이 쉽고 초보자도 익히기 쉬움
+보안성이 우수
+
+사용자 계정 생성 및 권한 부여
+계정 생성 create user user01 identified by ‘password’;
+권한 부여 grant all on *.* to user01;
+          grant all privileges on *.* to user01; 
+          flush privileges;
+권한 박탈 revoke all on *.* from user01;
+계정 삭제 drop user user01;
+
+데이터베이스
+존재하는 데이터베이스들 목록 보기 : show databases;
+새로운 데이터베이스 생성 : create database 데이터베이스명;
+데이터베이스 삭제 : Drop database 데이터베이스명
+데이터베이스로 들어가기 : use 데이터베이스명
+내가 어디서 작업하는지 모를 때 : select database();
+
+제약조건
+mysql은 테이블을 생성할 때 oracle과 크게 다를게 없지만 foreign key 제약조건은 반드시 아래에 따로 서술해야 함
+
+-- 시스템으로부터 현재 시간
+select current_time();
+select curtime();
+
+-- date_format(날짜/시간, 포맷) => 문자
+-- date_format(문자, 포맷) => 날짜
+	-- 포맷 : %Y 2023(년도4자리) %y 23(년도2자리)
+    --       %m (01월, 02월,...) %c(1,2,...) %M 월이름(January), %b 짧은월이름(Jan)
+    --       %d (01, 02, 03,..) %e(1, 2, 3...)
+    --       %H (24시간)  %h (12시간) %p (오전, 오후) %i분 %s초
+
+-- format(숫자, 소수점자리수) -> 문자
+select pname, format(pay, 2) from personal; -- 소수점 2자리까지 안오고 세자리마다 ,
+select pname, format(pay, 0) from personal;
+
+top-n 구문 (rownum이 없고, limit 이용)
+select pname, pay from personal order by pay desc;
+-- limit n (1~ n등)
+select pname, pay from personal order by pay desc limit 5;
+-- limit n1, n2 (n1번째부터 n2개. 첫번째는 0번째)
+select pname, pay from personal order by pay desc limit 0, 5; -- 1등부터 5개
+
+------------------------------------------------------------------------------------------
+JDBC 프로그래밍
+
+JDBC프로그래밍 단계와 사용 클래스
+
+JDBC 드라이버 로드 (JDBC 드라이버를 로드) : Class.forName()을 이용. 드라이버 클래스 로딩(드라이버 필요)
+사용 API : Class.ForName()
+
+데이터베이스 연결 (DB에 연결) : DriverManager.getConnection()을 이용해 Connection 객체 생성(접속 URL, id, passwd등 필요)
+사용 API : java.sql.Connection
+
+Statement 생성 (SQL문을 수행할 객체 생성) : SQL을 이용해 DB를 조회하거나 다룸. Statement는 SQL 처리 기본 객체
+사용 API : java.sql.Statement	java.sql.preparedStatement
+
+SQL문 전송 (SQL문 수행전송하고 결과 받음) :  SQL 문 Statement 객체의 executeQuery(), executeUpdate() 메소드를 이용, 
+데이터베이스로 전달해 처리
+사용 API : java.sql.Statement.executeQuery()	java.sql.Statement.executeUpdate()
+
+결과 받기 : SQL 실행 결과를 반환 받아야 하는 값이 있따면 ResultSet객체로 받음
+사용 API : java.sql.ResultSet
+결과 받아 원하는 로직 수행 (수행한 결과를 읽어 원하는 로직을 수행 (필요할 때까지 반복)
+
+연결 해제 ( DB 연결 해제 : 사용한 자원을 반납함
+사용 API : java.sql.Connection.close()

@@ -38,7 +38,7 @@ public class Ex2_selectWhereDeptno2 {
 				System.out.println("부서명 : " + dname);
 				System.out.println("부서위치 : " + loc);
 				if(rs2.next()) {
-					System.out.println(deptno + "번  부서의 사원 정보는 다음과 같습니다");
+					System.out.println(deptno + "번 사원 정보는 다음과 같습니다");
 					do {
 						String empno = rs2.getString("empno");
 						String ename = rs2.getString("ename");

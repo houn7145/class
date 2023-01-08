@@ -44,12 +44,12 @@ public class personMain {
 
 			}
 		} // 직업명 가져오기
-		System.out.println(jobs);
+		//System.out.println(jobs);
 		do {
 			System.out.print("1:입력 || 2:직업별조회 || 3:전체조회 || 그외:종료");
-			fn = sc.next();
+			fn = sc.next(); //String
 			switch (fn) {
-			case "1": // 이름, 직업명(jobs), 국,영, 수 받아 insert
+			case "1": // 이름, 직업명(jobs), 국,영,수 받아 insert
 				sql = "INSERT INTO PERSON " + "    VALUES (PERSON_NO_SQ.NEXTVAL, ?, "
 						+ "(SELECT JNO FROM JOB WHERE JNAME=?), " + " ?, ?, ?)";
 				try {
@@ -90,10 +90,10 @@ public class personMain {
 				}
 				break;
 			case "2": // 직업명받아 직업 출력
-				sql = "SELECT ROWNUM||'등' RN, S.*" + "    FROM(SELECT P.PNAME, JNAME, KOR, ENG, MAT,SUM"
+				sql = "SELECT ROWNUM||'등' RN, S.*" + "    FROM(SELECT P.PNAME||'('||PNO||'번)'PNAME, JNAME, KOR, ENG, MAT,SUM"
 						+ "    FROM PERSON P,JOB J,(SELECT PNAME, KOR+ENG+MAT SUM"
 						+ "    FROM PERSON ORDER BY SUM DESC)A"
-						+ "    WHERE P.PNAME = A.PNAME AND P.JNO = J.JNO AND JNAME = UPPER(?)"
+						+ "    WHERE P.PNAME = A.PNAME AND P.JNO = J.JNO AND JNAME = ?"
 						+ "    ORDER BY SUM DESC)S";
 				try {
 					// 2~6단계
@@ -105,7 +105,7 @@ public class personMain {
 					pstmt.setString(1, jname);
 					rs = pstmt.executeQuery();
 					if (rs.next()) { // 해당부서 사원 리스트 출력
-						System.out.println("등수\t이름\t직업\t국어\t영어\t수학\t총점");
+						System.out.println("등수\t이름\t\t직업\t국어\t영어\t수학\t총점");
 						do {
 							String rn = rs.getString("rn");
 							String pname = rs.getString("pname");
@@ -136,7 +136,7 @@ public class personMain {
 				}
 				break;
 			case "3":
-				sql = "SELECT RN||'등' RN, P.PNAME, JNAME, P.KOR, P.ENG, P.MAT, SUM"
+				sql = "SELECT RN||'등' RN, P.PNAME||'('||PNO||'번)'PNAME, JNAME, P.KOR, P.ENG, P.MAT, SUM"
 						+ "    FROM JOB J, PERSON P,(SELECT ROWNUM RN, PNAME, SUM"
 						+ "    FROM(SELECT PNAME, KOR+ENG+MAT SUM FROM PERSON ORDER BY SUM DESC))A"
 						+ "    WHERE J.JNO=P.JNO AND A.PNAME = P.PNAME";
@@ -146,16 +146,16 @@ public class personMain {
 					pstmt = conn.prepareStatement(sql);
 					rs = pstmt.executeQuery();
 					if (rs.next()) { // 해당부서 사원 리스트 출력
-						System.out.println("등수\t이름\t직업\t국어\t영어\t수학\t총점");
+						System.out.println("등수\t이름\t\t직업\t국어\t영어\t수학\t총점");
 						do {
 							String rn = rs.getString("rn");
 							String pname = rs.getString("pname");
-							String jname1 = rs.getString("jname");
+							String jname = rs.getString("jname");
 							int kor = rs.getInt("kor");
 							int eng = rs.getInt("eng");
 							int mat = rs.getInt("mat");
 							int sum = rs.getInt("sum");
-							System.out.printf("%s\t%s\t%s\t%d\t%d\t%d\t%d\n", rn, pname, jname1, kor, eng, mat, sum);
+							System.out.printf("%s\t%s\t%s\t%d\t%d\t%d\t%d\n", rn, pname, jname, kor, eng, mat, sum);
 						} while (rs.next());
 					}
 				} catch (Exception e) {

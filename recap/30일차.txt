@@ -1,0 +1,53 @@
+web과 html, CSS
+
+web
+사전적인 의미로 거미줄이란 뜻으로 하나의 사이트나 또는 다른 사이트와의 관계가 거미집처럼 복잡하게 얽혀 있는 것에 비유하여 부르게 됨
+IT에서는 WWW(world wide web)의 줄임말로 사용
+전 세계의 컴퓨터들을 연결하여 정보 공유를 하는것이 주 목적
+프로토콜(Protocol) : 네트워크상에서 약속한 통신규약 (Http, FTP, SMTP, POP, DHCP) 
+Http : HyperText Transfer Protocol 정보를 가져와 브라우저 화면상에서 봄
+FTP : File Transfer Protocol. 파일을 다운
+SMTP, POP : 메일 송수신 protocol
+DHCP : Dynamic Host Configuration Protocol 다이나믹하게 계속 사설 ip 분배해주는 하여 Web을 사용하도록 하는 protocol
+IP : 네트워크상에서 컴퓨터를 식별할 수 있는 주소
+DNS : IP주소를 인간이 쉽게 외우도록 맵핑한 문자열
+Port : IP주소가 컴퓨터를 식별할 수 있게 해준다면, Port번호는 해당컴퓨터의 구동되고 있는 프로그램을 구분할 수 있는 번호
+
+ex)
+http://www.lec.com:80/abc/def/index.jsp
+http : 프로토콜
+www.lec.com : 컴퓨터주소(DNS를 통한 IP주소로변경)
+80 : 기본적인 포트번호
+abc/def/index.jsp : information path
+
+웹의 역사
+1969년 ARPA(Advanced Research Projects Agency)의 ARPANET이 웹의 모태
+1991년 월드 와이드 웹 페이지의 개발 등장
+웹에서 맞는 형식은 *.html(또는 *.htm)로 문서를 저장해야 하며 
+텍스트뿐 아니라 이미지, 링크 등 여러 요소들을 다루고 표시할 수 있는 문서를 작성하는 언어가 필요하기에 HTML 언어가 탄생함
+1993년 웹 표준 단체 W3C 창설
+HTML1 : 1991년 10월
+HTML2 : 1995년 11월
+HTML3 : 1997년 1월
+HTML4 : 1997년 12월
+HTML5 : 2014년 10월
+
+HTML 5의 추가 기능
+멀티미디어 기능 : 플래시와 같은 별도의 플러그인 없이 음악과 동영상 재생
+그래픽 기능 : 하드웨어 가속을 받아 2차원 그래픽과 3차원 그래픽 구현 가능
+통신 : 양방향 통신이 가능
+장치 접근 : 장치와 관련된 정보(배터리 정보, CPU 사용량)는 물론 장치에 직접적으로 접근해서 카메라와 GPS, 진동벨을 사용할 수 있다.
+오프라인 및 저장소 : 인터넷이 연결되지 않는 상태에서도 애플리케이션이 동작
+CSS3 스타일시트 완벽 지원
+성능 및 통합 : 기존의 웹 표준보다 빠르다. 추가 기능을 사용해 웹 성능을 극대화
+
+HTML 웹 문서의 구조, 정보
+HTML이란, Hyper Text Markup Language의 약자로서 웹문서를 기술하는 언어
+웹문서를 표현하기 위해 태그들로 구성
+
+CSS 표현(디자인) 담당
+ascading Style Sheets의 약자로 HTML문서를 디자인적으로 예쁘게 만들어 정보 전달을 좀더 효율적으로 하기 위해 만들어진 문서
+
+JavaScript (동적인 내용) 동작을 담당 -> jQuery 
+2,3,4는 client단 / 서버단 PG은 java (DB에 연결하거나 상황에 따라 달리 작동)
+cf) Ajax는 웹 페이지의 특정 부분(특정 태그 부분)를 업데이트하고 서버와 데이터를 교환하는 기술

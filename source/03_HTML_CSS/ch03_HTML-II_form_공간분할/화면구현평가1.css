@@ -1,0 +1,22 @@
+﻿strong{
+       color:red;
+}
+p {
+    margin:0px;
+    color: black;
+    font-size: 14px;
+    text-align:center;
+}
+td{
+    text-align:center;
+}
+hr{
+    margin:20px;
+}
+h2{
+    text-align:center;
+}
+div{
+    text-align:center;
+    margin:10px;
+}

@@ -1,0 +1,42 @@
+CSS 속성
+
+CSS3 단위들: em, %, px
+
+url() : 백그라운드 이미지, 폰트 지정
+
+background-image 속성 : 배경을 지정하는 속성
+
+display : inline, block, inline-block, none
+화면에 어떻게 버이는지를 설정하는 속성
+다양한 속성값이 있지만 주로 inline, block, inline-block을 사용
+
+visibility : display 속성의 none속성값과 비교
+visibility:hidden : 공간은 확보되지만 보이지는 않음
+display:none : 공간도 사라짐
+
+opacity : 투명도를 설정하는 속성
+0~1사이의 값을 입력
+
+margin과 padding : margin - 밖여백 padding - 안여백을 조절
+
+boxing-sizing : border를 box안으로
+
+border
+border-width:10px;
+border-bottom-style:dashed;
+border-left-style:solid;
+border-top-style:double;
+border-color: green;
+border-left-color:black;
+
+글자관련 속성 : font-family(글꼴), font-size(글꼴크기), font-weight(진하게), font-style(이텔릭체), line-height(행간격이나 세로축에 대한 정렬), 
+text-align(글자에 대한 정렬), text-decoration(간단한 글꼴 모양의 속성)
+
+position : absolute, fixed, static, relative, relativ와 absolute의 혼합 사용
+
+float : position 속성과 함께 요소의 위치를 설정하기 위한 속성
+
+폰트 : <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+
+Gradient : 2가지 이상의 색을 표현할 때 사용되는 속성
+http://www.colorzilla.com/gradient-editor/에서 제공되는 소스를 이용

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap {
+            width:700px;
+            margin: 0 auto;
+        }
+        #header{
+            text-align:center;
+            border-bottom:1px solid lightgray;
+        }
+        #content {
+            padding: 0 10px;
+            text-align: justify;
+        }
+        #content p:nth-child(2)::first-line,
+        #content p:nth-child(3)::first-line{/*문자 선택자*/
+            color:blue;
+            font-weight:bold;
+            font-size:20px; /*p태그 기본폰트 크기:16px */
+        }
+        #content p:nth-child(2)::first-letter{/*문자 선택자*/
+            font-size:2em;/*현재 크기의 2배 = 40px*/
+        }
+        #content p:nth-child(3) span{
+            font-size:2em;/*문자 선택자를 모를 경우*/
+        }
+        #content p:nth-child(2)::selection{
+            background-color:violet;
+            color:yellow;
+        }
+        #footer ul{
+            border-top:1px solid lightgray;
+            overflow:hidden;
+        }
+        #footer ul li{
+            float:left;
+            list-style:none;
+            padding:15px 8px;
+        }
+        #footer ul li:first-child{
+            padding-top:25px
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>제목이나 회사명</h1>
+        </div>
+        <div id="content">
+            <p>What is Lorem Ipsum?</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            <p><span>T</span>here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+        </div>
+        <div id="footer">
+            <ul>
+                <li><img src="0112/logo.png" alt="회사로고" /></li>
+                <li><img src="0112/add.png" alt="회사정보" /></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿#wrap {
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    
+}
+#footer {
+    width: 800px;
+    height:80px;
+}
+#content h2{
+          text-align:center;
+          text-decoration:underline;
+          padding:20px;
+      }
+.p1{
+    font-weight:bold;
+    padding:5px;
+}
+.p2{
+    font-size:.8em;
+    padding:15px;
+}
+.p3{
+    text-align:right;
+    padding:5px;
+}
+hr{
+    margin:10px;
+    color:lightgray;
+}
+a::after {
+    content: ' - ' attr(href);
+}
+a {
+    text-decoration: none;
+    color:blue;
+    font-weight:bold;
+}
+.p4 {
+    text-align: center;   
+    padding:10px;
+    line-height:35px;
+}

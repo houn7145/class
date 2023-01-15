@@ -1,0 +1,112 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+#wrap {
+    width: 800px;
+    height: 590px;
+    margin: 0 auto;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    position:relative;
+
+}
+#back {
+    width: 800px;
+    height: 590px;
+    position: absolute;
+    background-image: url("0113/sulhyun.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -99;
+    opacity: 0.5;
+}
+
+#header {
+    width: 790px;
+    height:80px;
+    border: 2px solid gray;
+    text-align:center;
+    margin:5px;
+    box-sizing:border-box;
+    line-height:80px;
+    font-weight:bold;
+    background-color:yellow;
+}
+#nav {
+    width: 790px;
+    height: 100px;
+    border: 2px solid gray;
+    text-align: center;
+    margin: 5px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+#main {
+    width: 790px;
+    height: 300px;
+    border: 2px solid gray;
+    margin: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#content {
+    width: 600px;
+    height: 287px;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    margin: 7px;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+}
+#banner {
+    width: 160px;
+    height: 287px;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    margin: 7px 5px;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+}
+#footer {
+    width: 790px;
+    height: 80px;
+    border: 2px solid gray;
+    text-align: center;
+    margin: 5px;
+    box-sizing: border-box;
+    line-height: 80px;
+    font-weight: bold;
+    background-color: yellow;
+}
+#nav p{
+    margin:5px;
+}
+#nav ul {
+    overflow: hidden;
+}
+#nav ul li{
+    float:left;
+    list-style:none;
+    background-color:lightpink;
+    width:140px;
+    height:40px;
+    margin:5px 0px 5px 15px;
+}
+#nav ul li:first-child{
+    border-radius:30px 0 0 30px;
+}
+#nav ul li:last-child{
+    border-radius:0 30px 30px 0;
+}
+#nav ul li a {
+    text-decoration:none;
+    color:purple;
+    display:block;
+    text-align:center;
+    line-height:40px;
+}

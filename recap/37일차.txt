@@ -1,0 +1,90 @@
+CSS3 : 규칙과 반응형 웹
+
+CSS3 규칙
+CSS파일 분리 : CSS를 HTML 문서에서 분리하여 별도로 관리할 수 있음
+<link rel="stylesheet" href="initialcode.css" />
+<link rel="stylesheet" href="header.css" />
+@import 규칙 ; CSS3에서 ‘@’ 시작하는 키워드들을 규칙이라 정의함 @keyframe도 규칙이며 @import 규칙은 다음과 같은 한계가 있음
+
+<style>
+@import url(‘title.css’);
+</style>
+link를 대신할 수 있음
+<style>태그 내부에 위치해야 함
+<style>태그 상단에 위치해야 함.
+@media 규칙 ; link태그에 media속성을 이용하여 상황에 따른 CSS를 적용할 수 있음
+
+ex)
+<style>
+@import url('css/title.css');
+@import url('css/footer.css');
+@media screen {
+            #wrap .content{
+                background-color: darkgreen;
+                color: white;
+                padding: 30px 10px;
+            }
+        }
+@media print {
+            #wrap .content{
+                color: darkgreen;
+                padding: 10px 5px;
+                font-size: 1.2em;
+            }
+        }
+
+미디어 종류 
+- all : 모든 미디어 타입
+- aural : 음성 합성 장치
+- braille : 점자 표시 장치
+- handheld : 손으로 들고 다니면서 볼 수 있는 작은 스크린에 대응하는 용도
+- print : 인쇄 용도
+- projection : 프로젝터 표현 용도
+- screen : 컴퓨터 스크린을 위한 용도
+- tv : 음성과 영상이 동시 출력되는 TV와 같은 장치
+- embossed : 페이지에 인쇄된 점자 표지 장치
+
+우리가 쓰는 디바이스의 종류는 상당히 많음, 단말기의 사이즈도 다양하고 웹 페이지를 만들면 디바이스에 따라 달리 보여야 함을 유의
+min-device-width, max-device-width를 이용하여 사용하는 디바이스에 따라 보여지는 웹을 달리 할 수 있음
+ex)
+ /* 스마트폰용 화면 */
+@media screen and (max-width:959px) {
+	#wrap{
+                width: 100%;
+                background-color: lightpink;
+                margin: 3px;
+                font-size: 1.2em;
+            }
+            #wrap #nav ul li{
+                width: 33.3%;
+            }
+            #wrap #nav ul li:nth-child(4),
+            #wrap #nav ul li:nth-child(5){
+                display: none;
+            }
+        }
+/* 테블릿용 화면 */
+@media screen and (min-width:960px) and (max-width:1200px) {
+            #wrap{
+                width: 100%;
+                background-color: lightgreen;
+                margin: 3px;
+                font-size: 1.1em;
+            }
+            #wrap #nav ul li{
+                width: 25%;
+            }
+            #wrap #nav ul li:nth-child(5){
+                display: none;
+            }
+        }
+/* PC용 화면 */
+@media screen and (min-width:1201px) {
+            #wrap{
+                width:800px;
+                margin: 3px auto;
+            }
+            #wrap #nav ul li{
+                width: 20%;
+            }
+        }

@@ -1,0 +1,59 @@
+스마트폰과 태블릿 레이아웃
+
+스마트폰 레이아웃
+viewport : 웹브라우저의 HTML문서에 특정한 정보를 나타내기 위한 태그로 meta 태그가 있음
+스마트폰 단말기의 화면이 작던 크던 항상 꽉 차게 보여짐 
+디바이스의 특정정보를 나타내기 위해 모바일 웹 브라우저에서는 브라우저의 화면 설정과 관련된 정보를 제공하기 위한 방법으로
+viewport meta 태그를 사용함
+
+뷰포트 속성들
+width : 화면의 너비
+height : 화면의 높이
+initial-scale : 초기 확대 비율
+user-scalable : 확대 및 축소 가능 여부
+minimum-scale : 최소 비율
+maximum-scale : 최대 비율
+ex)
+<meta name="viewport" content="width=device-width, initial-scale=1.0,
+                user-scalable=yes, minimum-scale=0.7, maximum-scale=1.5">
+
+/* * * * *  checkBox가 checked일 경우만 gnb를 보이게 * * * * */
+#gnb {
+	display: none;
+        }
+#toggle:checked~#gnb {
+            display: block;
+        }
+#toggle {
+            display: none;
+        }
+
+/* 말줄임 태그(ellipsis) = 한줄만 출력하며 뒤에는 ...으로 처리*/
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+
+태블릿 레이아웃
+태블릿이나 스마트폰은 기종마다 넓이가 제각각이기에 태그들을 픽셀로 설정하면 이미지가 늘어나 보일 수 있음
+이를 방지하기 위해 픽셀(px)대신 %를 사용하고 이미지는 position을 활용하여 위치를 고정시키면 넓이가 제각각이어도 늘어나지 않음
+
+/* * * * * section의 #nav_lnb : 가로사이즈 - 고정 100px * * * * */
+section #nav_lnb{
+            float: left;
+            width: 100px;
+        }
+section #nav_lnb ul a{
+            display: block;
+            padding: 10px 20px;
+            color:rgb(109, 86, 86);
+            border-bottom: 2px dashed #777777;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+/* * * * * section의 #content_wrap : width를 100%(margin-right를 -100px) * * * * */
+section #content_wrap{
+            float: left;
+            width: 100%;
+            margin-right:-100px ;
+            background-color: lightyellow;
+        }

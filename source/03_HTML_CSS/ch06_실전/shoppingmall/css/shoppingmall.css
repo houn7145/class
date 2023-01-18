@@ -1,0 +1,187 @@
+/******* 페이지 초기화 *******/
+@font-face{
+    font-family: 'Orbitron-Black';
+    src: url('../font/Orbitron-Black.ttf'); /*폴더는 CSS 기준으로*/
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron-Black';
+}
+a {
+    text-decoration: none;
+    color:black;
+}
+li {
+    list-style: none;
+}
+/******* header의 .gnb *******/
+header .gnb{
+    width:100%;
+    background-color:black;
+}
+.gnb ul{
+    overflow: hidden;
+    width: 1000px;
+    height: 30px;
+    margin: 0 auto;
+    line-height: 30px;
+}
+.gnb ul li{
+    float: left;
+    width: 100px;
+    text-align: center;
+}
+.gnb ul li a{
+    color:white;
+    display: block;
+}
+/******* header의 .logo*******/
+header .logo{
+    width: 200px;
+    height: 100px;
+    margin: 30px auto;
+    border: 1px solid gray;
+    line-height: 100px;
+    text-align: center;
+}
+/******* header의 .hitmenu *******/
+.hitmenu ul{
+    width: 1000px; 
+    overflow: hidden;
+    margin: 0 auto 3px;
+}
+.hitmenu ul li{
+    float: right;
+    border: 1px solid gray;    
+}
+.hitmenu ul li a{
+    display: block;
+    padding: 10px 30px;
+}
+.hitmenu ul li:first-child{
+    border-radius: 0 15px 15px 0;
+}
+.hitmenu ul li:last-child{
+    border-radius: 15px 0 0 15px;
+}
+/******* header의 .lnb *******/
+header .lnb {
+    margin: 1px 0 0 0;
+    height: 30px;
+    border-bottom: 1px dotted gray;
+    border-top: 1px dotted gray;
+}
+.lnb ul {
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.lnb ul li{
+    float: left;
+    width: 125px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    
+}
+.lnb ul li a{
+    display: block;    
+}
+/******* #content *******/
+#content {
+    width: 1000px;
+    margin: 0 auto;
+
+}
+/******* content의 section1 *******/
+#content .section1{
+    width: 1000px;
+    height: 400px;
+    overflow: hidden;
+}
+.section1 .slide_banner{
+    float: left;
+    width: 700px;
+    height: 400px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 400px;
+}
+.section1 .side_banner{
+    float: left;
+    width: 300px;
+    height: 400px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 400px;
+}
+/******* content의 section2 hit *******/
+.section2 .hit_product {
+    width: 1000px;
+    height: 400px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+.hit_product ul{
+    overflow: hidden;
+}
+.hit_product ul li{
+    float: left;
+    width: 240px;
+    height: 400px;
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 400px;
+    margin: 0 0 0 8px;
+    box-sizing: border-box;   
+}
+/******* content의 section2 md *******/
+.section2 .md_product {
+    width: 1000px;
+    height: 400px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.md_product ul{
+    overflow: hidden;
+}
+.md_product ul li{
+    float: left;
+    width: 240px;
+    height: 400px;
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 400px;
+    margin: 0 0 0 8px;
+    box-sizing: border-box;   
+}
+/******* #footer *******/
+footer{
+    width: 1000px;
+    height: 115px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+footer .office_logo, .office_address, .shopping_info{
+    width: 33.33%;
+    height: 80px;
+    float: left;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin: 5px auto; 
+}
+footer .copyright{
+    clear:both;
+    width: 1000px;
+    height: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.7em;
+}

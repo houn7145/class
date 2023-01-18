@@ -1,0 +1,113 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+#wrap{
+    margin:0 auto;
+    width: 800px;
+    height: 590px;
+    margin: 0 auto;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    position:relative;
+    z-index:99;
+}
+#back {
+    width:800px;
+    height:590px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-image:url('back.jpg');
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    opacity:0.5;
+    z-index:-99;
+}
+#header {
+    width: 788px;
+    height: 80px;
+    border: 1px solid gray;
+    text-align: center;
+    margin: 5px;
+    box-sizing: border-box;
+    line-height: 80px;
+    font-weight: bold;
+    background-color: lightyellow;
+}
+#nav {
+    width: 788px;
+    height: 100px;
+    border: 1px solid gray;
+    text-align: center;
+    margin: 5px;
+    box-sizing: border-box;
+}
+#main {
+    width: 788px;
+    height: 300px;
+    margin: 5px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    overflow:hidden;
+}
+#content {
+    float: left;
+    width: 600px;
+    height: 287px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+#banner {
+    float: left;
+    width: 164px;
+    height: 287px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+#footer {
+    width: 788px;
+    height: 80px;
+    border: 1px solid gray;
+    text-align: center;
+    margin: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 80px;
+    background-color: yellow;
+    font-weight: bold;
+}
+#nav p{
+    font-weight:bold;
+    margin:5px;
+}
+#nav ul{
+    overflow:hidden;
+}
+#nav ul li{
+    float:left;
+    list-style:none;
+    background-color:pink;
+    font-weight:bold;
+    width:140px;
+    height:40px;
+    margin:5px 0 5px 13px;
+}
+#nav ul li:first-child{
+    border-radius:30px 0 0 30px;
+}
+#nav ul li:last-child{
+    border-radius:0 30px 30px 0;
+}
+#nav ul li a{   
+    text-decoration:none;
+    color:purple;
+    display:block;
+    line-height:40px;
+}

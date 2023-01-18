@@ -1,0 +1,122 @@
+/* * * * 페이지 초기화 * * * */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+/* * * * #wrap * * * */
+#wrap{
+    border: 3px solid black;
+    width: 1000px;
+    margin: 0 auto;
+}
+/* * * * #nav * * * */
+#nav {
+    overflow: hidden;
+    margin-bottom:20px ;
+}
+#nav #nav_left {
+    float: left;
+}
+#nav #nav_left ul{
+    overflow: hidden;
+}
+#nav #nav_left ul li {
+    float: left;
+    padding: 10px;
+    width: 100px;
+    height: 10px;
+    text-align: center;
+    line-height: 10px;
+    margin: 5px 15px;
+}
+#nav #nav_left ul li:first-child {
+    border: 1px solid gray;
+    background-color: #FDEADA;
+}
+#nav #nav_right{
+    float: right;
+}
+#nav #nav_right ul{
+    overflow: hidden;
+}
+#nav #nav_right ul li{
+    float: left;
+    padding:10px;
+    width:70px;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+}
+/* * * * #content * * * */
+#content{
+    overflow: hidden;
+}
+#content #title{
+    font-size: 1.3em;
+    padding: 10px;
+    margin: 3px;
+    border-bottom:1px solid gray ;
+}
+#content #lnb{
+    float: left;
+}
+#content #lnb ul{
+    margin: 10px 15px;
+}
+#content #lnb ul li{
+    border: 1px solid gray;
+    width:180px;
+    height: 30px;
+    line-height: 30px;
+}
+#content #lnb ul li:nth-child(4){
+    background-color: #FDEADA;
+    font-weight: bold;
+}
+#content #lnb ul li a{
+    padding-left: 30px;
+    display: block;
+}
+#content #my_content{
+    float: left;
+    border: 1px solid gray;
+    margin: 10px 0 30px 10px ;
+    width: 750px;
+    height: 300px;
+}
+#content #my_content #sub_title{
+    border-bottom: 1px solid gray;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 5px;
+}
+#content #my_content table{
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 20px;
+}
+#content #my_content td input{
+    width: 300px;
+    margin-left: 60px;
+}
+#content #my_content th input{
+    margin-top: 50px;
+}
+/* * * * #footer * * * */
+#footer{
+    background-color: #FDEADA;
+    border: 1px solid gray;
+    margin: 3px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+}

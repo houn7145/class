@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img{
+            width: 800px;
+        }
+    </style>
+    <script>
+        // const date = new Date();
+        // const hour = date.getHours(); // 0~23시간
+        const hour = new Date().getHours();
+        if(hour < 12 ){
+            document.write('상쾌한 오전입니다<br>');
+            document.write('<img src="https://p0.pikist.com/photos/952/595/earth-hour-earth-hour-morning-sky-earth-hour-colorful-morning-sky-dawn-colorful-dawn-colorful-morning-sky-morning-sky-colorful-sky.jpg" alt="am사진">');
+        }else{
+            document.write('따스한 오후입니다<br>');
+            document.write('<img src="ch03_img/pm.jpg" alt="pm사진">');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

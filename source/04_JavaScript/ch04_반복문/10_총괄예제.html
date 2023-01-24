@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var xNum = 0;
+        var oNum = 0;
+        var sum = 0;
+        do{
+            var con = (confirm('누적할래?'));
+            if(con){
+                var num = parseInt(prompt('누적할 점수? 1~100'));
+                if(isNaN(num) || num > 100 || num < 0){
+                    xNum++; // 점수를 잘못 입력
+                } else {
+                    oNum++; // 점수를 제대로 입력
+                    sum += num; // 누적점수
+                } 
+            }  
+        }while(con);
+        document.write((xNum+oNum) + '번 입력' + '<br>');
+        document.write('누적 점수 : ' + sum + '<br>');
+        document.write('점수를 제대로 입력한 횟수 : ' + oNum + '<br>');
+        document.write('점수를 잘못 입력한 횟수 : ' + xNum + '<br>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

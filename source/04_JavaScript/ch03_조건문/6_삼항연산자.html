@@ -7,6 +7,9 @@
         p{
             text-align: center;
         }
+        h1{
+            text-align: center;
+        }
     </style>
     <script>
         function chk(){
@@ -18,22 +21,48 @@
                 alert('두번째 수를 입력하세요');
                 frm.su2.focus();
                 return false;
-            }else{ // 몇번째수가 얼마 더 큰지 경고창과 화면에 출력
-                num1 = frm.su1.value;
-                num2 = frm.su2.value;             
+            }else{ 
+        / * * * * 몇번째수가 얼마 더 큰지 경고창과 화면에 출력 * * * * /
+                num1 = Number(frm.su1.value);
+                num2 = Number(frm.su2.value);             
                 if(num1 > num2){
-                    document.body.innerHTML = '<h1>첫번째 수가 ' + (num1-num2) + ' 큽니다</h1>';
-                    alert('첫번째수가 ' + (num1-num2) + '만큼 더 크다');
+                    document.body.innerHTML += '<p><h1>첫번째 수가 ' + (num1-num2) + ' 큽니다</h1></p>';
+                    frm.su1.value = num1;
+                    frm.su2.value = num2;
+                    alert('첫번째수가 ' + (num1-num2) + '만큼 더 크다');   
                 }else if (num2 > num1){
-                    document.body.innerHTML = '<h1>두번째 수가 ' + (num2-num1) + ' 큽니다</h1>';
+                    document.body.innerHTML += '<p><h1>두번째 수가 ' + (num2-num1) + ' 큽니다</h1></p>';
+                    frm.su1.value = num1;
+                    frm.su2.value = num2;
                     alert('두번째수가 ' + (num2-num1) + '만큼 더 크다');
-                }else{
-                    document.body.innerHTML = '<h1>동일한 숫자입니다</h1>';
+                }else{       
+                    document.body.innerHTML += '<p><h1>동일한 숫자입니다</h1></p>';         
+                    frm.su1.value = num1;
+                    frm.su2.value = num2;    
                     alert('동일한 숫자 입니다');
                 }
             }
             return false;
         }
+        / * * * * 삼항연산자 사용 * * * * /
+    //   let num1 = Number(frm.su1.value);
+    //   let num2 = Number(frm.su2.value);
+    //   let difference = (num1 > num2) ? (num1-num2) : (num2-num1);
+    //   let msg;
+    //   if(num1>num2){
+    //     msg = "<p>첫번째 수가 " + difference + "만큼 더 크다</p>";
+    //   }else if(num2>num1){
+    //     msg = "<p>두번째 수가 " + difference + "만큼 더 크다</p>";
+    //   }else{
+    //     msg = "<p>두 수가 같다</p>";
+    //   }
+    //   document.body.innerHTML += msg;
+    //   frm.su1.value = num1;
+    //   frm.su2.value = num2;
+    //   let alertMsg = msg.substring(3);
+    //   alertMsg = alertMsg.substring(0, alertMsg.indexOf('</p>'));
+    //   alert(alertMsg);
+    //   return false;
     </script>
 </head>
 <body>

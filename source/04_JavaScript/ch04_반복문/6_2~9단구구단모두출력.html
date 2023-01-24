@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table{
+            width: 900px;
+            margin: 10px auto;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+    <script>
+        / * * * * 단수 출력 * * * */
+        document.write('<table>');
+        document.write('<tr>');
+        for(var i = 2 ; i < 10 ; i++){
+            document.write('<th>' + i + '단' + '</th>');
+        }
+        document.write('</tr>');
+
+        / * * * * 2~9단 구구단 출력 * * * */
+        for(var n = 1 ; n < 10 ; n++){
+            document.write('<tr>'); 
+            for(var i = 2 ; i < 10 ; i++){
+                document.write('<td>' + i + '*' + n + '=' + (i*n) + '</td>');
+            } 
+            document.write('</tr>'); 
+        }
+        document.write('</table>');   
+    </script>
+</head>
+<body>
+
+</body>
+</html>

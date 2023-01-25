@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var arr1 = array(); // arguments = []
+        var arr2 = array(3); // arguments = [3]
+        var arr3 = array(273, 2, 'Hello'); // arguments = [273, 2, 'Hello']
+        // 가변인자 함수 array()를 생성 
+        // 매개변수 0개 : 빈 배열을 return
+        // 매개변수 1개 : 매개변수 만큼 크기를 가지는 배열을 생성
+        // 매개변수 2개 이상 : 매개변수로 배열을 만듦
+        function array () { // 실행시 arguments 배열에 매개변수가 들어옴 
+            var result = [];
+            if(arguments.length == 1){
+                for(var cnt = 1 ; cnt <=arguments[0] ; cnt++){
+                    result.push(null);
+                } // for
+            } else if (arguments.length >= 2){
+                // arguments는 시스템이 자동생성
+                // for(var idx = 0 ; idx <arguments.length ; idx++){
+                //     result.push(arguments[idx]);
+                // }
+                for(var idx in arguments){
+                    result.push(arguments[idx]);
+                }
+            //  arguments.forEach(function(data){
+            //      result.push(data);
+            //  }); 시스템이 자동생성한 배열에서는 사용 불가
+            }
+            return result;
+        }
+        document.write('arr1=(' + arr1 +' )의 방갯수 : ' + arr1.length + '<br>');
+        console.log('arr1=(' + arr1 +' )의 방갯수 : ' + arr1.length);
+        document.write('arr2=(' + arr2 +' )의 방갯수 : ' + arr2.length + '<br>');
+        console.log('arr2=(' + arr2 +' )의 방갯수 : ' + arr2.length);
+        document.write('arr3=(' + arr3 +' )의 방갯수 : ' + arr3.length + '<br>');
+        console.log('arr3=(' + arr3 +' )의 방갯수 : ' + arr3.length);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

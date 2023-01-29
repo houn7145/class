@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {
+            width: 300px;
+            height: 250px;
+            border: 2px solid #385d81;
+            text-align: center;
+        }
+        td input{
+            border: 2px solid #385d81;
+            height: 20px;
+            width: 150px;
+        }
+        tr:last-child td input{
+            background-color: #6793be;
+            border-radius: 5px;
+            color: white;
+            width: 70px;
+            height: 40px;
+            
+        }
+    </style>
+    <script>
+        var patternSpc = /[~`!@#$%^&*()\-_+=|\\\[\]{}'";:?,.\/<>]/;
+        var patternNum = /[0~9]/;
+        var patternMail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/;
+        var patternPw = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{4,}$/;
+        var patternEngL = /[A-Z]/
+        var patternEngS = /[a-z]/
+        function chk(){
+            if(frm.name.value.match(patternNum)||frm.name.value.match(patternSpc)||frm.name.value == ''){
+                frm.name.value = '';
+                frm.name.focus();
+                return false;
+            }else if (!frm.mail.value.match(patternMail)){
+                frm.mail.value = '';
+                frm.mail.focus();
+                return false;
+            }else if (!frm.pw.value.match(patternPw) || !frm.pw.value.match(patternEngS) || !frm.pw.value.match(patternEngL)){
+                frm.pw.value = '';
+                frm.pw.focus();
+                return false;
+            }else if (frm.pw.value != frm.pwchk.value){
+                frm.pw.value = '';
+                frm.pwchk.value = '';
+                frm.pw.focus();
+                return false;
+            }
+            return true;
+        };
+    </script>
+</head>
+<body>
+    <form action="" method ="get" name="frm" onsubmit="return chk()">
+        <table>
+            <tr>
+                <td>이 름</td>
+                <td><input type="text" name="name"/></td>
+            </tr>
+            <tr>
+                <td>메 일</td>
+                <td><input type="text" name="mail"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pwchk"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="회원가입">
+                    <input type="reset" value="취소">
+                    <input type="button" value="로그인">
+                </td>
+                
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

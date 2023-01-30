@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            width: 300px auto;
+            text-align: center;
+        }
+        input {
+            text-align: left;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var id = opener.document.getElementById('parentId').value;
+            var modifyId = document.getElementById('childId');
+            modifyId.value = id;
+        };
+        function out(){
+            var modifyId = document.getElementById('childId').value;
+            opener.document.getElementById('parentId').value = modifyId;
+            close();
+        };
+    </script>
+</head>
+
+<body>
+    <p>ID <input type="text" id="childId"> <input type="button" value="체크"></p>
+    <input onclick="out()" type="button" value="아이디사용">
+</body>
+
+</html>

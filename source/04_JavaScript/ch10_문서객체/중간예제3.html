@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1{
+            padding-top: 30px;
+        }
+        td{
+            width : 70px;
+            height : 140px;  
+        }
+        td:nth-child(1){
+            background-color: red;
+        }
+        td:nth-child(2){
+            background-color: orange;
+        }
+        td:nth-child(3){
+            background-color: yellow;
+        }
+        td:nth-child(4){
+            background-color: green;
+        }
+        td:nth-child(5){
+            background-color: blue;
+        }
+        td:nth-child(6){
+            background-color: navy;
+        }
+        td:nth-child(7){
+            background-color: purple;
+        }
+    </style>
+    <script>
+        var table = document.querySelectorAll('td');
+        var h1 = document.createElement('h1');
+        var textNode = document.createTextNode('야호 거의 끝났다');
+        // var h1 = document.getElementById('h1');
+        function over(n){
+            switch(n){
+                case 1: document.body.style = 'background-color:black'; 
+                h1.appendChild(textNode);
+                document.body.appendChild(h1);
+                h1.style.cssText = 'color:red;';break;
+                
+                case 2:document.body.style = 'background-color:black';                 
+                h1.appendChild(textNode);
+                document.body.appendChild(h1);
+                h1.style.cssText = 'color:orange;';break;
+
+                case 3:document.body.style = 'background-color:black';                
+                h1.appendChild(textNode);
+                document.body.appendChild(h1);
+                h1.style.cssText = 'color:yellow;';break;
+
+                case 4:document.body.style = 'background-color:black';                 
+                h1.appendChild(textNode);
+                document.body.appendChild(h1);
+                h1.style.cssText = 'color:green;';break;
+
+                case 5:document.body.style = 'background-color:black';                 
+                h1.appendChild(textNode);
+                document.body.appendChild(h1);
+                h1.style.cssText = 'color:blue;';break;
+
+                case 6:document.body.style = 'background-color:black';                
+                h1.appendChild(textNode);
+                document.body.appendChild(h1);
+                h1.style.cssText = 'color:navy;';break; 
+
+                case 7:document.body.style = 'background-color:black';                 
+                h1.appendChild(textNode);
+                document.body.appendChild(h1);
+                h1.style.cssText = 'color:purple;';break;
+            }
+        };
+        function out(){
+            document.body.style = 'background-color:white';
+            h1.remove();
+        };
+    </script>
+</head>
+<body>
+    <table>
+        <tr onmouseout="out()">
+            <td onmouseover="over(1)"></td>
+            <td onmouseover="over(2)"></td>
+            <td onmouseover="over(3)"></td>
+            <td onmouseover="over(4)"></td>
+            <td onmouseover="over(5)"></td>
+            <td onmouseover="over(6)"></td>
+            <td onmouseover="over(7)"></td>
+        </tr>
+    </table>
+</body>
+</html>

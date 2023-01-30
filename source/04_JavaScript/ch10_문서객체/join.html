@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            width: 300px auto;
+            text-align: center;
+        }
+        input {
+            text-align: left;
+        }
+    </style>
+    <script>
+        function childOpen(){
+            var child = open('confirm.html', '', 'width=600, height=600, left=100');
+        };
+    </script>
+</head>
+<body>
+    <p>아이디 <input type="text" id="parentId"> <input onclick="childOpen()" type="button" value="중복확인"></p>
+    <input type="button" value="회원가입">
+</body>
+</html>

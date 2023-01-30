@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0 auto;
+        }
+        td{
+            width : 70px;
+            height : 140px;  
+        }       
+    </style>
+    <script>
+        var color = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple', 'white'];
+        window.onload = function(){
+            var table = document.querySelectorAll('td');
+            for(var idx in table){
+                table[idx].style = 'background-color:'+color[idx];
+            }
+        };
+        function over(n){
+            document.body.style.backgroundColor = color[n];
+        };
+    </script>
+</head>
+<body>
+    <table>
+        <tr onmouseout="over(7)">
+            <td onmouseover="over(0)"></td>
+            <td onmouseover="over(1)"></td>
+            <td onmouseover="over(2)"></td>
+            <td onmouseover="over(3)"></td>
+            <td onmouseover="over(4)"></td>
+            <td onmouseover="over(5)"></td>
+            <td onmouseover="over(6)"></td>
+        </tr>
+    </table>
+</body>
+</html>

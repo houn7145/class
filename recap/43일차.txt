@@ -1,0 +1,35 @@
+문서 객체 모델(Document Object Model : DOM)
+넓은 의미로 HTML 페이지를 인식하는 방식이고 좁은 의미로 document객체와 관련된 객체의 집합
+
+문서 객체 모델과 관련된 용어 정리 : 태그, 문서객체, 노드
+태그를 자바스크립트에서 이용할 수 있는 객체로 만든 것이 문서 객체이며 각 요소를 노드라 부름
+
+문서 객체 만들기 : 텍스트 노드를 갖는 문서 객체 만들기
+동적으로 문서 객체를 만들기 위해 
+1. Document 객체의 노드 생성 
+createElement(tagname) : 요소 노드를 생성
+createTextNode(text) : 텍스트 노드를 생성
+document.body.innerHTML += : HTML을 추가
+
+2. 문서 객체 연결
+appendChild(node) : 객체에 노드를 연결
+
+텍스트 노드를 갖고 있지 않은 문서 객체 만들기
+setAttribute('src', 'img/red.jpg'); : img.src = 'img/red.jpg';
+
+문서 객체를 가져오기
+getElementById(id) : 태그의 id속성이 id와 일치하는 문서 객체를 가져옴
+getElementsByClassName(class) : class명이 일치하는 문서 객체를 배열로 가져옴
+getElementsByName(name) : 태그의 name 속성이 name과 일치하는 문서 객체를 배열로 가져옴
+getElementsByTagName(태그명) : 태그이름과 일치하는 문서 객체를 배열로 가져옴
+document.querySelector(선택자) : 선택자로 가장 처음 선택되는 문서 객체를 가져옴
+document.querySelectorAll(선택자) : 선택자로 선택되는 문서 객체를 배열로 가져옴
+
+문서 객체 제거하기
+remove() : 전부 삭제
+removeChild() : 특정 요소만 삭제
+
+parent 창에서 넘겨오는 데이터와 현재 팝업창에서 생성된 데이터의 처리
+parent와 child간의 데이터 통신
+parent에서 할 일 : child창 open
+child에서 할 일 : opener(parent) id의 데이터를 받아 내 document 객체에 뿌리기

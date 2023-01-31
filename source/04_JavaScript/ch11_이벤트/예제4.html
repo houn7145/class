@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        window.onload = function(){
+            var img = document.getElementsByTagName('img');
+            for(let i = 0; i<img.length; i++){ // 일반 for문만 가능
+                img[i].addEventListener('mouseover', function(){
+                    this.setAttribute('src', 'img/' + i +'over.jpg');
+                });
+            };
+            for(let i = 0; i<img.length; i++){
+                img[i].addEventListener('mouseout', function(){
+                    this.setAttribute('src','img/' + i + 'out.jpg');
+                });
+            };
+        };
+    </script>
+</head>
+<body>
+    <p>
+    <img src="img/0out.jpg" >
+    <img src="img/1out.jpg" >
+    <img src="img/2out.jpg" >
+    <img src="img/3out.jpg" >
+    </p>
+</body>
+</html>

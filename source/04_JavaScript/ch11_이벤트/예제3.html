@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {
+            width: 500px;
+            margin: 10px auto;
+            background-color: darkgreen;
+        }
+        td {
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var tds = document.getElementsByTagName('td');
+            var idx = 4;
+            tds[idx].style.backgroundColor = 'yellow';
+            var p = document.querySelector('b');   
+            window.onkeyup = function(){
+                // 좌측화살표아스키(37), 상화살표아스키(38) 
+                // 우측화살표아스키(39), 하화살표아스키(40)
+                var tds = document.getElementsByTagName('td'); // 배열
+                var key = event.keyCode;
+                switch(key){
+                    case 37:
+                        if(idx%3 != 0){
+                            idx--;
+                        }else{
+                            idx += 2;
+                        }
+                        break;
+                    case 38:
+                        if(idx >= 3){
+                            idx -= 3;
+                        }else {
+                            idx += 6;
+                        }
+                        break;
+                    case 39:
+                        if(idx%3 == 2){
+                            idx -= 2;
+                        }else {
+                            idx++;
+                        }
+                        break;
+                    case 40:
+                        if(idx <= 5){
+                            idx += 3;
+                        }else{
+                            idx -= 6;
+                        }
+                        break;
+                    default:
+                        return;
+                }
+                for(var i = 0; i < tds.length ; i++){
+                    tds[i].style.backgroundColor = 'white';
+                }                      
+                tds[idx].style.backgroundColor = 'yellow';
+                p.innerHTML = idx;
+                
+            };
+        };
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>0</td><td>1</td><td>2</td>
+        </tr>
+        <tr>
+            <td>3</td><td>4</td><td>5</td>
+        </tr>
+        <tr>
+            <td>6</td><td>7</td><td>8</td>
+        </tr>
+    </table>
+    <p class="p">현위치 : <b>4</b></p>
+</body>
+</html>

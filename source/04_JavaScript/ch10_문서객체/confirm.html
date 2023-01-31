@@ -9,19 +9,16 @@
             width: 300px auto;
             text-align: center;
         }
-        input {
-            text-align: left;
-        }
     </style>
     <script>
         window.onload = function(){
-            var id = opener.document.getElementById('parentId').value;
+            var id = opener.document.getElementById('id').value;
             var modifyId = document.getElementById('childId');
             modifyId.value = id;
         };
         function out(){
             var modifyId = document.getElementById('childId').value;
-            opener.document.getElementById('parentId').value = modifyId;
+            opener.document.getElementById('id').value = modifyId;
             close();
         };
     </script>

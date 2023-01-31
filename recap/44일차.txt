@@ -1,0 +1,75 @@
+document.querySelector에서는 addEventListener 사용불가능
+document.getElementById는 단일 DOM 객체를 가져오지만 document.querySelectorl은 NodeCollection을 가져오기 때문에
+또한 NodeCollection은 숫자 인덱스를 가지고 있고 length property를 가지고 있지만, 배열은 아니므로 forEach등의 Iterator Function을 호출할 수 없음
+일반 for문만 사용 가능
+
+getElementById VS querySelector 차이
+Document.querySelector()는 제공한 선택자 또는 선택자 뭉치와 일치하는 문서 내 첫 번째 Element를 반환
+일치하는 요소가 없으면 null을 반환
+
+Document.getElementById() 메서드는 주어진 문자열과 일치하는 id 속성을 가진 요소를 찾고, 이를 나타내는 Element 객체를 반환
+ID는 문서 내에서 유일해야 하기 때문에 특정 요소를 빠르게 찾을 때 유용
+
+이벤트
+키보드를 이용해 버튼을 입력하거나 마우스 클릭과 같이 다른 것에 영향을 미치는 것
+사전적 정의 : 자바 스크립트에서 DOM을 통해 동적인 화면처리를 위해 처리하는 내용
+ex)onclick, onmouseover, onmouseout, onkeyup(키보드의 특정키를 눌렀다가 올라올 때 event.keyCode 해당키의 고유 코드값..)
+
+인라인이벤트모델
+<h1 onclick="whenClick();">Click</h1>
+
+기본이벤트모델
+이벤트 속성에 function을 할당
+
+ex)
+let whenClick = () => {
+	alert('click함');
+};
+header.onclick = whenClick;
+
+이벤트 이름 : click
+이벤트 속성 변수 : onclick
+이벤트 리스너 함수 : whenClick
+
+표준이벤트모델
+addEventListener('이벤트명',function(){})
+this 사용시 화살표 함수 사용 불가
+
+addEventListener 사용법
+click – 마우스버튼을 클릭하고 버튼에서 손가락을 떼면 발생
+mouseover – 마우스를 HTML요소 위에 올리면 발생
+mouseout – 마우스가 HTML요소 밖으로 벗어날 때 발생
+mousedown – 클릭을 하기 위해 마우스버튼을 누르고 아직 떼기 전인 그 순간, HTML요소를 드래그할 때 사용할 수 있음
+mouseup – 마우스버튼을 떼는 그 순간, 드래그한 HTML요소를 어딘가에 놓을 때 사용할 수 있음
+mousemove – 마우스가 움직일때마다 발생하며 마우스커서의 현재 위치를 계속 기록하는 것에 사용할 수 있음
+focus – HTML요소에 포커스가 갔을때 발생
+blur – HTML요소가 포커스에서 벗어났을때 발생
+keypress – 키를 누르는 순간에 발생하고 키를 누르고 있는 동안 계속해서 발생
+keydown – 키를 누를 때 발생
+keyup – 키를 눌렀다가 떼는 순간에 발생
+load – 웹페이지에서 사용할 모든 파일의 다운로드가 완료되었을때 발생
+resize – 브라우저 창의 크기를 조절할때 발생
+scroll – 스크롤바를 드래그하거나 키보드(up, down)를 사용하거나 마우스 휠을 사용해서 웹페이지를 스크롤할 때 발생하며 페이지에 스크롤바가 없다면 이벤트는 발생하지 않음
+unload – 링크를 클릭해서 다른 페이지로 이동하거나 브라우저 탭을 닫을 때 혹은 브라우저 창을 닫을 때 이벤트가 발생
+change – 폼 필드의 상태가 변경되었을 때 발생하며 라디오 버튼을 클릭하거나 셀렉트 박스에서 값을 선택하는 경우를 예로 들 수 있음
+
+이벤트강제발생
+이벤트를 할당해 놓은 함수를 호출하면 이벤트가 강제로 발생함
+
+이벤트제거 
+이벤트가 할당된 함수에 null을 할당하면 이벤트가 제거됨
+ex)
+this.onclick = null;
+
+이벤트제한
+결과값이 ture인 if문에 false를 return하면 이벤트가 제한됨
+ex)
+return false
+
+이벤트전달
+어떠한 이벤트가 먼저 발생해 어떤 순서로 발생하는지를 이벤트 전달이라 함
+자바스크립트는 자식 노드에서 부모 노드 순으로 이벤트를 실행하며 이를 이벤트 버블링 방식이라 부름
+
+event.keyCode(입력된 키 코드)
+event.offsetX와 event.offsetY(클릭한 곳의 offset좌표)
+event.screenX와 event.screenY(클릭한 곳의 screen좌표)

@@ -4,25 +4,19 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-/**
- * Servlet implementation class Ex1_HelloWorld
- */
 //@WebServlet(name = "HelloWorld", urlPatterns = { "/HW" })
 public class Ex1_HelloWorld extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("doGet ìš”ì²­");
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("doGet ¿äÃ»");
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter(); // ìŠ¤íŠ¸ë¦¼ ìƒì„±
+		PrintWriter out = response.getWriter(); // ½ºÆ®¸² »ı¼º
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<style>");
@@ -30,17 +24,13 @@ public class Ex1_HelloWorld extends HttpServlet {
 		out.println("</style>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>ì•ˆë…•í•˜ì„¸ìš”, ì²« Servlet ì˜ˆì œì…ë‹ˆë‹¤<h1>");
+		out.println("<h1>¾È³çÇÏ¼¼¿ä, Ã¹ Servlet ¿¹Á¦ÀÔ´Ï´Ù</h1>");
 		out.println("</body>");
 		out.println("</html>");
 		out.close();
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost ìš”ì²­");
+		System.out.println("doPost ¿äÃ»");
 		doGet(request, response);
 	}
 

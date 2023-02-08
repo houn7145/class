@@ -8,30 +8,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 @WebServlet("/Ex2")
+//@WebServlet(name="Ex2", urlPatterns = {"/Ex2"})
 public class Ex2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String numStr = request.getParameter("num");
-		response.setContentType("text/html; charset=UTF-8");
-		if(numStr == null) {
-			response.getWriter().print("ë„˜ì–´ì˜¨ íŒŒë¼ë¯¸í„°ê°€ ì—†ìŠµë‹ˆë‹¤");
+		response.setContentType("text/html; charset=utf-8");
+		if(numStr==null) {
+			response.getWriter().print("³Ñ¾î¿Â ÆÄ¶ó¹ÌÅÍ°¡ ¾ø½À´Ï´Ù");
 		}else {
 			int num = Integer.parseInt(numStr);
 			int sum = 0;
-			for(int i = 0 ; i <= num ; i++) {
+			for(int i = 0; i<=num ; i++) {
 				sum += i;
 			}
-			
-			PrintWriter out = response.getWriter(); // ìŠ¤íŠ¸ë¦¼ ìƒì„±
+			PrintWriter out = response.getWriter(); // ½ºÆ®¸² »ı¼º
 			out.print("<html>");
 			out.print("<head>");
 			out.print("<link href=\"css/ex2.css\" rel=\"stylesheet\">");
 			out.print("</head>");
 			out.print("<body>");
-			out.print("<h2>1ë¶€í„° " + num + "ê¹Œì§€ì˜ ëˆ„ì í•©ì€ " + sum +" ì…ë‹ˆë‹¤</h2>");
+			out.print("<h2>1ºÎÅÍ "+num +"±îÁöÀÇ ´©ÀûÇÕÀº " + sum +"ÀÔ´Ï´Ù<h2>");
 			out.print("</body>");
 			out.print("</html>");
 			out.close();

@@ -20,8 +20,11 @@
 		int secSu = Integer.parseInt(request.getParameter("secDan"));
 	%>
 <table>
-	<caption><%=firSu + "단부터 " + secSu + "단까지 구구단 출력"%></caption>
-	
+	<tr>
+	<%for(int k = firSu ; k <= secSu ; k++){%>
+			<th><%=k + "단" %></th>
+	<%}%>
+	</tr>
 	<%for(int i = 1 ; i <= 9 ; i++){%>
 		<tr>
 		<%for(int j = firSu ; j <= secSu ; j++){%>

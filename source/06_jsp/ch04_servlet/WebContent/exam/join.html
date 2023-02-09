@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/join.css" rel="stylesheet">
+</head>
+<body>
+	<div id="joinForm_wrap">
+		<div id="join_title">회원가입</div>
+		<form action="../join" method="post">
+			<table>
+				<tr><td>이름</td><td><input class="name" type="text" name="name"></td></tr>
+				<tr><td>아이디</td><td><input class="id" type="text" name="id"></td></tr>
+				<tr><td>비밀번호</td><td> <input class="pw" type="password" name="pw"></td></tr>
+				<tr><td>비밀번호확인</td><td><input class="pwChk" type="password" name="pwchk"></td></tr>
+				<tr><td>생년월일</td><td> <input class="birth" type="date" name="birth"></td></tr>
+				<tr><td>취미</td><td><input type="checkbox" name="hobby"><optioon>독서</optioon>
+							<input type="checkbox" name="hobby"><optioon>요리</optioon>
+							<input type="checkbox" name="hobby"><optioon>운동</optioon>
+							<input type="checkbox" name="hobby"><optioon>취침</optioon></td></tr>
+				<tr><td>성별</td><td><input type="radio" name="gender" value="m">남자
+							<input type="radio" name="gender" value="f">여자</td></tr>
+				<tr><td>이메일</td><td><input class="email" type="text" name="email"></td></tr>
+				<tr><td>메일수신</td><td><select class="mailSend" name="mailSend">
+								<option value="1">광고</option>
+								<option value="2">배송</option>
+								<option value="3">공지</option>
+								<option value="4">거부</option></select></td></tr>
+				<tr><td colspan="2"><input class="joinBtn_style" type="submit" value="가입하기">
+						<input class="joinBtn_style" type="reset" value="다시하기">
+						<input class="joinBtn_style" type="button" value="뒤로가기"></td></tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

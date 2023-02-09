@@ -21,15 +21,15 @@ public class Ex1Test extends HttpServlet {
 		actionDo(request, response);
 	}
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// name, pw ÆÄ¶ó¹ÌÅÍ¸¦ ¹Ş¾Æ ºê·¯¿ìÀú È­¸é¿¡ »Ñ¸®±â
+		// name, pw íŒŒë¼ë¯¸í„°ë¥¼ ë°›ì•„ ë¸ŒëŸ¬ìš°ì € í™”ë©´ì— ë¿Œë¦¬ê¸°
 		String name = request.getParameter("name");
 		String pw = request.getParameter("pw");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<body>");
-		out.println("<h2>ÀÌ¸§Àº " + name + "</h2>");
-		out.println("<h2>ºñ¹øÀº " + pw + "</h2>");
+		out.println("<h2>ì´ë¦„ì€ " + name + "</h2>");
+		out.println("<h2>ë¹„ë²ˆì€ " + pw + "</h2>");
 		out.println("</body>");
 		out.println("</html>");
 		out.close();

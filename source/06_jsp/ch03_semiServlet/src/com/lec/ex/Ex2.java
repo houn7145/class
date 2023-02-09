@@ -16,20 +16,20 @@ public class Ex2 extends HttpServlet {
 		String numStr = request.getParameter("num");
 		response.setContentType("text/html; charset=utf-8");
 		if(numStr==null) {
-			response.getWriter().print("³Ñ¾î¿Â ÆÄ¶ó¹ÌÅÍ°¡ ¾ø½À´Ï´Ù");
+			response.getWriter().print("ë„˜ì–´ì˜¨ íŒŒë¼ë¯¸í„°ê°€ ì—†ìŠµë‹ˆë‹¤");
 		}else {
 			int num = Integer.parseInt(numStr);
 			int sum = 0;
 			for(int i = 0; i<=num ; i++) {
 				sum += i;
 			}
-			PrintWriter out = response.getWriter(); // ½ºÆ®¸² »ı¼º
+			PrintWriter out = response.getWriter(); // ìŠ¤íŠ¸ë¦¼ ìƒì„±
 			out.print("<html>");
 			out.print("<head>");
 			out.print("<link href=\"css/ex2.css\" rel=\"stylesheet\">");
 			out.print("</head>");
 			out.print("<body>");
-			out.print("<h2>1ºÎÅÍ "+num +"±îÁöÀÇ ´©ÀûÇÕÀº " + sum +"ÀÔ´Ï´Ù<h2>");
+			out.print("<h2>1ë¶€í„° "+num +"ê¹Œì§€ì˜ ëˆ„ì í•©ì€ " + sum +"ì…ë‹ˆë‹¤<h2>");
 			out.print("</body>");
 			out.print("</html>");
 			out.close();

@@ -25,7 +25,7 @@ public class Ex3 extends HttpServlet {
 		// rel=\"stylesheet\">");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h2>" + num + "´Ü ±¸±¸´Ü</h2>");
+		out.println("<h2>" + num + "ë‹¨ êµ¬êµ¬ë‹¨</h2>");
 		for(int i = 1 ; i < 10 ; i++) {
 			out.println(num + "*" + i + "=" + (num*i)+"<br>");
 		}

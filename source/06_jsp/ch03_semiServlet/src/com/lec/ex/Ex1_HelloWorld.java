@@ -14,9 +14,9 @@ public class Ex1_HelloWorld extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("doGet ¿äÃ»");
+		System.out.println("doGet ìš”ì²­");
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter(); // ½ºÆ®¸² »ı¼º
+		PrintWriter out = response.getWriter(); // ìŠ¤íŠ¸ë¦¼ ìƒì„±
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<style>");
@@ -24,13 +24,13 @@ public class Ex1_HelloWorld extends HttpServlet {
 		out.println("</style>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>¾È³çÇÏ¼¼¿ä, Ã¹ Servlet ¿¹Á¦ÀÔ´Ï´Ù</h1>");
+		out.println("<h1>ì•ˆë…•í•˜ì„¸ìš”, ì²« Servlet ì˜ˆì œì…ë‹ˆë‹¤</h1>");
 		out.println("</body>");
 		out.println("</html>");
 		out.close();
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost ¿äÃ»");
+		System.out.println("doPost ìš”ì²­");
 		doGet(request, response);
 	}
 

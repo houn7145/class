@@ -48,6 +48,7 @@ public class Join extends HttpServlet {
 //		out.println("<h2>비번 : ");
 //		for(int i=0 ; i<pw.length() ; i++)
 //			out.print('*');
+		
 //		out.println("</h2>");
 		out.println("<h2>비번 : " + pw.replaceAll("[a-zA-Z0-9~`!@#$%^&*()\\-_+=|\\{}\\[\\]:;\"'?/<>,\\.]", "*") + "</h2>");
 		out.println("<h2>생년월일 : "+birth+"</h2>");

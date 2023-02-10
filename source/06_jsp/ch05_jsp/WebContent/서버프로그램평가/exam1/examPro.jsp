@@ -30,7 +30,7 @@
 		Random random = new Random(); 
 		int ran = random.nextInt(3)+1;
 		if(su!=(ran)){
-			String msg = "<h2>Wrong! Try Again!<br>("+su+"은(는) 아니고 정답은 "+(ran)+")</h2>";
+			String msg = "<h2>Wrong! Try Again!<br>("+su+"은(는) 아니고 정답은 "+ ran +")</h2>";
 			msg = URLEncoder.encode(msg,"utf-8");
 			response.sendRedirect("exam.jsp?msg=" + msg);
 		}

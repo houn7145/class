@@ -34,7 +34,7 @@
 		<%
 			String msg = request.getParameter("msg");
 			if(msg!=null){
-			out.println(msg);
+				out.println(msg);
 			}
 		%>
 	</div>

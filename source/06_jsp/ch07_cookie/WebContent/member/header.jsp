@@ -45,7 +45,7 @@
 					<ul>
 						<li><a href="<%=conPath%>/member/join.jsp">회원가입</a></li>
 						<li><a href="<%=conPath%>/member/login.jsp">로그인</a></li>
-						<li><a href="<%=conPath%>index.jsp">홈</a></li>
+						<li><a href="<%=conPath%>/index.jsp">홈</a></li>
 					</ul>
 			  <%}else{ // 로그인 후 헤더 화면 %>
 					<ul>

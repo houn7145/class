@@ -9,8 +9,18 @@
 	<link href="<%=conPath %>/css/login.css" rel="stylesheet">
 </head>
 <body>
-	<%
-		request.setCharacterEncoding("utf-8");
+	<%	request.setCharacterEncoding("utf-8");
+		String msg = "";
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		if(id == null || !id.equals("aaa") || pw == null || !pw.equals("111")){
+			response.sendRedirect("login.jsp?msg=xx");
+		}else{
+			session.setAttribute("id", id);
+			session.setAttribute("name", "홍길동");
+			response.sendRedirect(conPath + "/member/main.jsp");
+		}
+		/* request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		// DB에 id와 pw확인 : SELECT * FROM MEMBER WHERE ID = ? and pw = ?
@@ -25,7 +35,8 @@
 			cookie2.setMaxAge(-1);
 			response.addCookie(cookie2); // name이라는 이름의 쿠키를 response에 탑재
 			response.sendRedirect(conPath + "/member/main.jsp");
-		}
+		} */
+		
 	%>
 	<%-- <jsp:include page="../member/header.jsp"/>
 	<br><br><br><br><br><br>

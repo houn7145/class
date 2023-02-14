@@ -6,31 +6,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<style>
-		header{
-			width : 800px; margin: 0 auto;
-		}
-		header ul {
-			overflow: hidden;
-		}
-		header ul li {
-			list-style: none;
-			float : right;
-			padding: 10px 30px;
-		}
-		header ul li a {
-			text-decoration: none;
-			font-weight: bold;
-			font-size: 1.5em;
-			color: #805040;
-		}
-	</style>
+		<link href="<%=conPath %>/css/header.css" rel="stylesheet">
 </head>
 <body>
 	<header>
 		<div id="nav">
-			<%
-				String id = null; // id쿠키가 있을 경우 쿠키 값을 저장
+			<%	
+				String sessionName = (String)session.getAttribute("name");
+				if(sessionName == null){
+				/* String id = null; // id쿠키가 있을 경우 쿠키 값을 저장
 				Cookie[] cs = request.getCookies();
 				if(cs != null){
 					for(Cookie c : cs){
@@ -40,18 +24,18 @@
 						}
 					}
 				}// if
-				if(id == null){ // 로그인 전 헤더 화면
+				if(id == null){ // 로그인 전 헤더 화면 */
 			  %>		
 					<ul>
 						<li><a href="<%=conPath%>/member/join.jsp">회원가입</a></li>
 						<li><a href="<%=conPath%>/member/login.jsp">로그인</a></li>
-						<li><a href="<%=conPath%>/index.jsp">홈</a></li>
+						<li><a href="<%=conPath%>/member/main.jsp">홈</a></li>
 					</ul>
 			  <%}else{ // 로그인 후 헤더 화면 %>
 					<ul>
-						<li><a href="<%=conPath%>/member/cookieList.jsp">쿠키리스트</a></li>
+						<li><a href="#">정보수정</a></li>
 						<li><a href="<%=conPath%>/member/logout.jsp">로그아웃</a></li>
-						<li><a href="<%=conPath%>/"><%=id %>님</a></li>
+						<li><a href="#"><%=sessionName %>님</a></li>
 					</ul>
 			  <%}%>
 		</div>

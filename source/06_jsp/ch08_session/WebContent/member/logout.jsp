@@ -33,6 +33,6 @@
 			}
 		</script>
 	
-<jsp:include page="../member/footer.jsp"/>
+	<jsp:include page="../member/footer.jsp"/>
 </body>
 </html>

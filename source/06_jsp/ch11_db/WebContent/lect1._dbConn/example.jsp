@@ -75,7 +75,7 @@
 					out.println(" 	 <td>" + dname + "</td></tr>");
 				}while(rs.next());
 			}else{
-				out.println("<tr><td colspan='8'>해당 사원명을 가진 사원이 없습니다</td></tr>");
+				out.println("<tr><td colspan='8'>해당 사원명을 가진 사원이 없습니다.</td></tr>");
 			}
 		}catch(Exception e){
 			System.out.println(e.getMessage());

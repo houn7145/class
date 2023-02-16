@@ -1,0 +1,27 @@
+웹프로그래밍 데이터베이스
+JDBC란 JAVA 프로그램에서 SQL문을 실행하여 데이터를 관리하기 위한 JAVA API
+JDBC의 특징은 다양한 데이터 베이스에 대해 별도의 프로그램을 만들 필요 없이 해당 데이터 베이스의
+JDBC를 이용하면 하나의 프로그램으로 데이터 베이스를 관리할 수 있음
+
+*오라클 드라이버를 사용하기 위한 C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6.jar 나 ojdbc6_g.jar 파일을 
+C:\Program Files\Java\jre1.8.0_101\lib\ext 폴더(%JAVA_HOME%/JRE/LIB/EXT 폴더) 에 복사한 후
+이클립스에서 Windows 메뉴 – preferences – Java – Installed JREs – edit – Add External JARs을 통해 두개의 jar를 등록 후 
+Restore Default 클릭 후 finish
+
+데이터 베이스 연결 순서
+1. JDBC 드라이버 로드 : DriverManager로드 : Class.forName(“oracle.jdbc.driver.OracleDriver”); 메모리에 OracleDriver가 로드됨
+2. 데이터 베이스 연결 : Connection : DriverManager.getConnection(JDBC URL, 계정아이디, 비밀번호) : connection 객체 생성
+3. SQL문 실행
+	connection.createStatement();Statement 객체를 통해 SQL문 실행
+	ResultSet : statement.executeQuery(), statement.executeUpdate(); SQL문의 결과값을 ResultSet객체로 받음
+4. 데이터 베이스 연결 해제
+
+statement 객체
+executeQuery() : SQL문 실행 후 여러 개의 결과값 생기는 경우 사용 ex. select
+executeUpdate() : SQL문 실행 후 테이블의 내용만 변경되는 경우 사용 ex. insert, delete, update
+ResultSet.next() : 다음 레코드로 이동
+ResultSet.previous() : 이전 레코드로 이동
+ResultSet.first() : 처음 레코드로 이동
+ResultSet.last() : 마지막 레코드로 이동
+get메소드 : getString, getInt
+

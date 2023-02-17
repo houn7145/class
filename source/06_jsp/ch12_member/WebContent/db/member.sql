@@ -22,8 +22,8 @@ SELECT * FROM MEMBER WHERE ID = 'aaa';
 INSERT INTO MEMBER 
         (ID, PW, NAME, PHONE1, PHONE2, PHONE3, GENDER, EMAIL, BIRTH, ADDRESS, RDATE)
     VALUES
-        ('aaa', '111', '홍길동', '02', '716', '7777', 'm', 'hong@hong.com', '1995-12-12', '서울', SYSDATE);
-        
+        ('bbb', '111', '김길동', '02', '715', '7777', 'm', 'hong@hong.com', '1995-12-12', '서울', SYSDATE);
+commit; 
 -- 3. 로그인 : public int loginCheck(String id, String pw)
 SELECT * FROM MEMBER WHERE ID = 'aaa';
 SELECT * FROM MEMBER WHERE PW = '111';
@@ -32,7 +32,7 @@ SELECT * FROM MEMBER WHERE PW = '111';
 --                   : public MemberDto getMember(String id)
 SELECT * FROM MEMBER WHERE ID = 'aaa';
 
--- 회원정보수정 : public int modifyMember(MemberDto dto)
+-- 5. 회원정보수정 : public int modifyMember(MemberDto dto)
 UPDATE MEMBER SET PW = '111',
                   NAME = '홍길동',
                   PHONE1 = '031',

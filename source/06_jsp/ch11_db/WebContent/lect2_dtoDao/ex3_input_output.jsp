@@ -59,7 +59,7 @@
 		<%
 			EmpDao empDao = EmpDao.getInstance();
 			ArrayList<EmpDto> empList = empDao.deptnoEmpList(deptnoInput);
-			if(empList.size()!=0){
+			if(empList.size() != 0){
 				for(int idx = 0 ; idx < empList.size() ; idx++){
 					int empno = empList.get(idx).getEmpno();
 					String ename = empList.get(idx).getEname();

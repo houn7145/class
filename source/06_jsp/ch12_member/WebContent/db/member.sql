@@ -1,4 +1,4 @@
---TABLE DROP $ CREATE
+--TABLE DROP & CREATE
 DROP TABLE MEMBER;
 CREATE TABLE MEMBER(
     ID VARCHAR2(30) PRIMARY KEY,
@@ -22,7 +22,7 @@ SELECT * FROM MEMBER WHERE ID = 'aaa';
 INSERT INTO MEMBER 
         (ID, PW, NAME, PHONE1, PHONE2, PHONE3, GENDER, EMAIL, BIRTH, ADDRESS, RDATE)
     VALUES
-        ('bbb', '111', '김길동', '02', '715', '7777', 'm', 'hong@hong.com', '1995-12-12', '서울', SYSDATE);
+        ('aaa', '111', '김길동', '02', '715', '7777', 'm', 'hong@hong.com', '1995-12-12', '서울', SYSDATE);
 commit; 
 -- 3. 로그인 : public int loginCheck(String id, String pw)
 SELECT * FROM MEMBER WHERE ID = 'aaa';
@@ -42,5 +42,5 @@ UPDATE MEMBER SET PW = '111',
                   EMAIL = 'kil@hong.com',
                   BIRTH = '1995-12-12',
                   ADDRESS = '경기도 안양'
-        WHERE ID = 'aaa';
+        WHERE ID = 'bbb';
 COMMIT;

@@ -79,8 +79,9 @@
 				<tr>
 					<th><label for="cgender">성별</label></th>
 					<td><input type="radio" name="cgender" value="m"
-						checked="checked" id="m"><label for="m">남자</label> <input
-						type="radio" name="cgender" value="f" id="f"><label for="f">여자</label>
+						checked="checked" id="m" class="cgender"><label for="m">남자</label> 
+						<input
+						type="radio" name="cgender" value="f" id="f" class="cgender"><label for="f">여자</label>
 					</td>
 				</tr>
 				<tr>

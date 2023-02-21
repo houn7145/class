@@ -20,7 +20,7 @@
 	padding-left:10px;
 }
 #joinForm_wrap table td {width: 300px;}
-.cName, .cId, .cPw, .cPwChk, .cBirth, .cEmail, .cTel, .cAddress {
+#cname, #cid, #cpw, #cpwChk, #cbirth, #cemail, #ctel, #caddress, #cgender {
 	border: 1px solid #D4A190; height:20px;
 	width:95%; padding:3px;
 }

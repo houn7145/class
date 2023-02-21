@@ -10,7 +10,7 @@
 		#logout_wrap{
 			height: 600px; 
 			line-height: 600px;
-			font-size: 16px;
+			font-size: 15px;
 			text-align: center;
 			width: 400px;
 			margin: 0 auto;

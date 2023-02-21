@@ -20,37 +20,33 @@
 	</script>
 </head>
 <body>
-	<div id="fri_wrap">
-		<form action="<%=conPath%>/exam_friend/friendInputListPro2.jsp" name="frm">
-			<p>
-				친구이름 <input type="text" name="name" required="required" size="10" value="<%
-														String name = request.getParameter("name");
-														if(name != null) out.print(name);
-																					%>">
-				전화 <input type="text" name="tel" size="10" value="<%
-														String tel = request.getParameter("tel");
-														if(tel != null) out.print(tel);
-																					%>">
-				<input type="button" value="검색" onclick = "search()">
-				<input type="submit" value="추가">
-			</p>
-		</form>
-		<table>
-			<caption>DB에 입력된 친구들 리스트</caption>
-			<tr><td>순번</td><td>이름</td><td>전화</td></tr>
-			<%
-				FriendDao fDao = FriendDao.getInstance();
-				ArrayList<FriendDto> friendList = fDao.schFriend(name, tel);
-				for(FriendDto Friend : friendList){
-					int no = Friend.getNo();
-					name = Friend.getName();
-					tel = Friend.getTel();
-					out.println("<tr><td>" + no + "</td>");
-					out.println("	 <td>" + name + "</td>");
-					out.println("	 <td>" + (tel == null ? "-" : tel) + "</td></tr>");
-				}
-			%>
-		</table>
-	</div>
+	<form action="<%=conPath%>/exam_friend/friendInputListPro2.jsp" name="frm">
+		<p>
+			친구이름 <input type="text" name="name" required="required" size="10" value="<%
+													String name = request.getParameter("name");
+													if(name != null) out.print(name);
+																				%>">
+			전화 <input type="text" name="tel" size="10" value="<%
+													String tel = request.getParameter("tel");
+													if(tel != null) out.print(tel);
+																				%>">
+			<input type="button" value="검색" onclick = "search()">
+			<input type="submit" value="추가">
+		</p>
+	</form>
+	<table>
+		<caption>DB에 입력된 친구들 리스트</caption>
+		<tr><td>순번</td><td>이름</td><td>전화</td></tr>
+		<%
+			FriendDao fDao = FriendDao.getInstance();
+			ArrayList<FriendDto> friendList = fDao.getSchFriends(name, tel);
+			for(FriendDto friend : friendList){
+				tel = friend.getTel();
+				out.println("<tr><td>" + friend.getNo() + "</td>");
+				out.println("	 <td>" + friend.getName() + "</td>");
+				out.println("	 <td>" + (tel == null ? "-" : tel) + "</td></tr>");
+			}
+		%>
+	</table>
 </body>
 </html>

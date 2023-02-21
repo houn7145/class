@@ -11,36 +11,36 @@ CREATE TABLE MEMBER(
     EMAIL VARCHAR2(30),
     BIRTH DATE,
     ADDRESS VARCHAR2(200),
-    RDATE DATE NOT NULL -- ê°€ì…ì¼
+    RDATE DATE NOT NULL -- °¡ÀÔÀÏ
 );
 SELECT* FROM MEMBER;
--- 1. íšŒì›ê°€ì…ì‹œ ID ì¤‘ë³µì²´í¬ : public int confirmId(String id)
+-- 1. È¸¿ø°¡ÀÔ½Ã ID Áßº¹Ã¼Å© : public int confirmId(String id)
 SELECT * FROM MEMBER WHERE ID = 'aaa';
 -- SELECT COUNT(*) FROM MEMBER WHERE ID = 'AAA';
 
--- 2. íšŒì›ê°€ì… : public int joinMember(MemberDto dto)
+-- 2. È¸¿ø°¡ÀÔ : public int joinMember(MemberDto dto)
 INSERT INTO MEMBER 
         (ID, PW, NAME, PHONE1, PHONE2, PHONE3, GENDER, EMAIL, BIRTH, ADDRESS, RDATE)
     VALUES
-        ('aaa', '111', 'ê¹€ê¸¸ë™', '02', '715', '7777', 'm', 'hong@hong.com', '1995-12-12', 'ì„œìš¸', SYSDATE);
+        ('aaa', '111', '±è±æµ¿', '02', '715', '7777', 'm', 'hong@hong.com', '1995-12-12', '¼­¿ï', SYSDATE);
 commit; 
--- 3. ë¡œê·¸ì¸ : public int loginCheck(String id, String pw)
+-- 3. ·Î±×ÀÎ : public int loginCheck(String id, String pw)
 SELECT * FROM MEMBER WHERE ID = 'aaa';
 SELECT * FROM MEMBER WHERE PW = '111';
 
--- 4. IDë¡œ dtoê°€ì ¸ì˜¤ê¸° : ë¡œê·¸ì¸ ì„±ê³µì‹œ sessionì— setAttribute / íšŒì›ì •ë³´ ìˆ˜ì •ì‹œ íšŒì›ì •ë³´ ê°€ì ¸ì˜¤ê¸° 
+-- 4. ID·Î dto°¡Á®¿À±â : ·Î±×ÀÎ ¼º°ø½Ã session¿¡ setAttribute / È¸¿øÁ¤º¸ ¼öÁ¤½Ã È¸¿øÁ¤º¸ °¡Á®¿À±â 
 --                   : public MemberDto getMember(String id)
 SELECT * FROM MEMBER WHERE ID = 'aaa';
 
--- 5. íšŒì›ì •ë³´ìˆ˜ì • : public int modifyMember(MemberDto dto)
+-- 5. È¸¿øÁ¤º¸¼öÁ¤ : public int modifyMember(MemberDto dto)
 UPDATE MEMBER SET PW = '111',
-                  NAME = 'í™ê¸¸ë™',
+                  NAME = 'È«±æµ¿',
                   PHONE1 = '031',
                   PHONE2 = '777',
                   PHONE3 = '1234',
                   GENDER = 'm',
                   EMAIL = 'kil@hong.com',
                   BIRTH = '1995-12-12',
-                  ADDRESS = 'ê²½ê¸°ë„ ì•ˆì–‘'
+                  ADDRESS = '°æ±âµµ ¾È¾ç'
         WHERE ID = 'bbb';
 COMMIT;

@@ -24,7 +24,7 @@
 			if(totalCnt == 0){
 				out.println("<tr><td colspan='5'> 등록된 글이 없습니다 </td></tr>");
 			}else{
-				ArrayList<BoardDto> dtos = bDao.listBoard();
+				ArrayList<BoardDto> dtos = bDao.listBoard(); // 글목록
 				for(BoardDto dto : dtos){
 					// 글번호 <td>+dto.getNum()+</td>
 					out.println("<tr><td>" + dto.getNum() + "</td>");

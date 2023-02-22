@@ -29,7 +29,7 @@
 	 %>
 	 		<script>
 	 			alert('글 수정 성공');
-	 			<%-- location.href='<%=conPath%>/board/list.jsp?pageNum=<%=pageNum%>'; --%>
+	 			<%-- location.href='<%=conPath%>/board/list.jsp?pageNum=<%===pageNum%>'; --%>
 	 			location.href='<%=conPath%>/board/content.jsp?num=<%=dto.getNum()%>&pageNum=<%=pageNum%>';
 	 		</script>		
 	 <% }else{%>	

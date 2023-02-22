@@ -23,7 +23,7 @@
 			String pageNum = request.getParameter("pageNum");
 			if(pageNum == null) pageNum = "1"; // 전달받은 pageNum 파라미터가 없으면 1page로 전환
 			int currentPage = Integer.parseInt(pageNum); // 현재 몇 페이지인지
-			final int PAGESIZE = 10, BLOCKSIZE = 10; // 페이지당 글 갯수 | 블록당 페이지수
+			final int PAGESIZE = 10, BLOCKSIZE = 10; // 페이지당 글 갯수 | 블록당 페이지 수
 			int startRow = (currentPage - 1) * PAGESIZE + 1; // 블록 시작 번호
 			int endRow = startRow + PAGESIZE - 1; // 블록 끝 번호
 			BoardDao bDao = BoardDao.getInstance(); 
@@ -59,13 +59,13 @@
 	</table>
 	<div class="paging">
 		<%
-			int pageCnt = (int)Math.ceil((double)totalCnt / PAGESIZE);
-			int startPage = ((currentPage - 1) / BLOCKSIZE) * BLOCKSIZE + 1;
-			int endPage = startPage + BLOCKSIZE - 1;
-			if(endPage > pageCnt){
+			int pageCnt = (int)Math.ceil((double)totalCnt / PAGESIZE); // 페이지 수
+			int startPage = ((currentPage - 1) / BLOCKSIZE) * BLOCKSIZE + 1; // 시작 페이지
+			int endPage = startPage + BLOCKSIZE - 1; // 끝 페이지
+			if(endPage > pageCnt){ // 끝 페이지가 페이지 수보다 크면 
 				endPage = pageCnt;
 			}
-			if(startPage > BLOCKSIZE){
+			if(startPage > BLOCKSIZE){ // 시작 페이지가 블록당 페이지수보다 크면
 				out.println("[ <a href='" + conPath + "/board/list.jsp?pageNum=" + (startPage - 1) + "'> 이전 </a> ]");
 				
 			}
@@ -76,7 +76,7 @@
 					out.println("[ <a href='" + conPath + "/board/list.jsp?pageNum=" + i + "'>" + i + "</a> ]");
 				}
 			}
-			if(endPage < pageCnt){
+			if(endPage < pageCnt){ // 끝 페이지가 페이지 수보다 작으면
 				out.println("[ <a href='" + conPath + "/board/list.jsp?pageNum=" + (endPage + 1) + "'> 다음</a> ]");
 			}
 		%>

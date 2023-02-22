@@ -112,6 +112,53 @@ public class BoardDao {
 		}
 		return dtos;
 	}
+	// 2. 글 목록 - topN구문
+	public ArrayList<BoardDto> listBoard(int startRow, int endRow) {
+		ArrayList<BoardDto> dtos = new ArrayList<BoardDto>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * " + 
+				"    FROM(SELECT ROWNUM RN, A.* FROM(SELECT * FROM BOARD ORDER BY REF DESC) A)" + 
+				"    WHERE RN BETWEEN ? AND ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int num = rs.getInt("num");
+				String writer = rs.getString("writer");
+				String subject = rs.getString("subject");
+				String content = rs.getString("content");
+				String email = rs.getString("email");
+				int readcount = rs.getInt("readcount");
+				String pw = rs.getNString("pw");
+				int ref = rs.getInt("ref");
+				int re_step = rs.getInt("re_step");
+				int re_indent = rs.getInt("re_indent");
+				String ip = rs.getString("ip");
+				Timestamp rdate = rs.getTimestamp("rdate");
+				dtos.add(new BoardDto(num, writer, subject, content, email, readcount, pw, ref, re_step, re_indent, ip,
+						rdate));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return dtos;
+	}
 
 //		3. 글 쓰기(원글쓰기) - 글쓴이, 글제목, 글본문, 이메일, PW :
 	public int insertBoard(BoardDto dto) {
@@ -193,49 +240,49 @@ public class BoardDao {
 		return dto;
 	}
 //			4. 글 번호로 글 상세보기 내용(DTO) 가져오기 : 
-		public BoardDto getBoardOneLine(String numStr) {
-			BoardDto dto = null;
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			String sql = "SELECT * FROM BOARD WHERE NUM = ?";
+	public BoardDto getBoardOneLine(String numStr) {
+		BoardDto dto = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM BOARD WHERE NUM = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, numStr);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				int num = rs.getInt("num");
+				String writer = rs.getString("writer");
+				String subject = rs.getString("subject");
+				String content = rs.getString("content");
+				String email = rs.getString("email");
+				int readcount = rs.getInt("readcount");
+				String pw = rs.getNString("pw");
+				int ref = rs.getInt("ref");
+				int re_step = rs.getInt("re_step");
+				int re_indent = rs.getInt("re_indent");
+				String ip = rs.getString("ip");
+				Timestamp rdate = rs.getTimestamp("rdate");
+				dto = new BoardDto(num, writer, subject, content, email, readcount, pw, ref, re_step, re_indent, ip,
+						rdate);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
 			try {
-				conn = getConnection();
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, numStr);
-				rs = pstmt.executeQuery();
-				if (rs.next()) {
-					int num = rs.getInt("num");
-					String writer = rs.getString("writer");
-					String subject = rs.getString("subject");
-					String content = rs.getString("content");
-					String email = rs.getString("email");
-					int readcount = rs.getInt("readcount");
-					String pw = rs.getNString("pw");
-					int ref = rs.getInt("ref");
-					int re_step = rs.getInt("re_step");
-					int re_indent = rs.getInt("re_indent");
-					String ip = rs.getString("ip");
-					Timestamp rdate = rs.getTimestamp("rdate");
-					dto = new BoardDto(num, writer, subject, content, email, readcount, pw, ref, re_step, re_indent, ip,
-							rdate);
-				}
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
-			} finally {
-				try {
-					if (rs != null)
-						rs.close();
-					if (pstmt != null)
-						pstmt.close();
-					if (conn != null)
-						conn.close();
-				} catch (SQLException e) {
-					System.out.println(e.getMessage());
-				}
 			}
-			return dto;
 		}
+		return dto;
+	}
 
 //		5. 조회수 올리기  : 
 	public void readCountup(int num) {

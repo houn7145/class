@@ -30,7 +30,7 @@
 			Enumeration<String> paramNames = multiRequest.getFileNames(); // "file0" "file1" "file2"
 			int idx = 0;
 			while(paramNames.hasMoreElements()){
-				String param = paramNames.nextElement(); // 파리미터 이름
+				String param = paramNames.nextElement(); // 파리미터 이름. 파일의 다음을 읽어옴
 				filenames[idx] = multiRequest.getFilesystemName(param); // 해당 파라미터 이름으로 저장된 파일 이름
 				oriFilenames[idx] = multiRequest.getOriginalFileName(param); // 파라미터 이름으로 첨부한 오리지널 파일 이름
 				System.out.println(idx + "번째 파라미터 : " + param + 

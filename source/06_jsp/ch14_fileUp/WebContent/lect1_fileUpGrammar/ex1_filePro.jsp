@@ -29,7 +29,7 @@
 			// new DefaultFileRenamePolicy() : 같은 이름의 파일이 있을 경우 : 1.jpg -> 11.jpg
 			Enumeration<String> paramNames = mRequest.getFileNames(); // 파일 첨부한 파라미터들 
 			while(paramNames.hasMoreElements()){
-				String param = paramNames.nextElement(); // param = "file"
+				String param = paramNames.nextElement(); // param = "file" 파일의 다음을 읽어옴
 				filename = mRequest.getFilesystemName(param); // 파라미터로 올라온 파일 이름
 				originalFilename = mRequest.getOriginalFileName(param); // 파라미터에 첨부한 오리지널 파일 이름
 				System.out.println("파라미터 이름 : " + param + 

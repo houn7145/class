@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%
 	String conPath = request.getContextPath();
-if (session.getAttribute("customer") != null) {
+	if (session.getAttribute("customer") != null) {
 	response.sendRedirect(conPath + "/main/main.jsp");
-}
+	}	
 %>
 <!DOCTYPE html>
 <html>

@@ -27,7 +27,7 @@
 			newCustomer.setCemail("hong" + i + "@hong.com");
 			newCustomer.setCtel("010-9999-999" + i);
 			int result = cDao.joinCustomer(newCustomer);
-			out.println(result == CustomerDao.SUCCESS ? i + "번째 가입 성공" : i + "번째 가입 실패" + "<br>");
+			out.println(result == CustomerDao.SUCCESS ? i + "번째 가입 성공<br>" : i + "번째 가입 실패<br>");
 		}
 	%>
 	<button onclick="location.href='<%=conPath%>/'">홈</button>

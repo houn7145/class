@@ -6,40 +6,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link href="<%=conPath %>/css/style.css" rel="stylesheet" type="text/css">
 	<style>
-		#logout_wrap{
-			height: 600px; 
-			line-height: 600px;
-			font-size: 15px;
+		#logoutForm_wrap{
+			height:600px; line-height: 600px; font-size: 32px;
 			text-align: center;
-			width: 400px;
-			margin: 0 auto;
-			color:#A47160;
-		}	
+			width:1000px;            	
+			margin:0px auto; 
+		}
 	</style>
 	<script>
 		setTimeout(function() {
-			location.href = 'main.jsp';
+			location.href = '<%=conPath%>/main/main.jsp';
 		}, 3000);
 	</script>
 </head>
 <body>
-	<jsp:include page="../customer/header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
 	<%
 		if(session.getAttribute("customer") != null){
 			session.invalidate();
 	%>
-		<div id="logout_wrap">
+		<div id="logoutForm_wrap">
 			로그아웃 되었습니다. 잠시 후 메인 페이지로 이동합니다.
 		</div>
 	<%		
 		}else{
 	%>
-		<div id="logout_wrap">
+		<div id="logoutForm_wrap">
 			로그인 상태가 아닙니다. 잠시 후 메인 페이지로 이동합니다.
 		</div>
-	  <%} %>
-		
-	<jsp:include page="../customer/footer.jsp"/>
+	<%  }%>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

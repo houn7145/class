@@ -134,7 +134,7 @@ public class BoardDao {
 				String content = rs.getString("content");
 				String email = rs.getString("email");
 				int readcount = rs.getInt("readcount");
-				String pw = rs.getNString("pw");
+				String pw = rs.getString("pw");
 				int ref = rs.getInt("ref");
 				int re_step = rs.getInt("re_step");
 				int re_indent = rs.getInt("re_indent");

@@ -18,7 +18,7 @@ public class CustomerDao {
 	public static final int FAIL = 0;
 	public static final int CUSTOMER_NONEEXISTENT = 1;	// 사용가능 id
 	public static final int CUSTOMER_EXISTENT = 0; // 중복된 id
-	public static final int LOGIN_SUCCESS = 1; // 로그인 성
+	public static final int LOGIN_SUCCESS = 1; // 로그인 성공 {
 	public static final int LOGIN_FAIL = 0; // 로그인 실패
 	
 	private static CustomerDao instance = new CustomerDao();

@@ -1,41 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% 
-	String conPath = request.getContextPath(); 
-	if(session.getAttribute("customer") != null){
-		response.sendRedirect(conPath + "/customer/main.jsp");
-	}
+	pageEncoding="UTF-8"%>
+<%
+	String conPath = request.getContextPath();
+if (session.getAttribute("customer") != null) {
+	response.sendRedirect(conPath + "/customer/main.jsp");
+}
 %>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<link href="<%=conPath %>/css/join.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="<%=conPath%>/css/join.css" rel="stylesheet">
 <script>
 	window.onload = function() {
 		document.querySelector('form').onsubmit = function() {
-			var pw = document.getElementById('cPw');
-			var pwChk = document.getElementById('cPwChk');
-			var patternMail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/; // 
-			var email = document.getElementById('cEmail');
-			if (pw.value != cPwChk.value) {
+			var cpw = document.getElementById('cpw');
+			var cpwChk = document.getElementById('cpwChk');
+			var patternMail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/; // macth함수 사용
+			var cemail = document.getElementById('cemail');
+			if (cpw.value != cpwChk.value) {
 				alert('비밀번호를 확인하세요');
-				pw.value = '';
-				pwChk.value = '';
-				pw.focus();
+				cpw.value = '';
+				cpwChk.value = '';
+				cpw.focus();
 				return false;
-			} else if (email.value && !email.value.match(patternMail)) {
+			} else if (cemail.value && !cemail.value.match(patternMail)) {
 				alert('메일 형식을 확인하세요');
-				email.focus();
+				cemail.focus();
 				return false;
-			} 
+			}
 		};
 	};
 </script>
 </head>
 <body>
-	<jsp:include page="../customer/header.jsp"/>
+	<jsp:include page="../customer/header.jsp" />
 	<div id="joinForm_wrap">
 		<div id="join_title">회원가입</div>
 		<form action="joinPro.jsp" method="post">
@@ -59,7 +59,7 @@
 				<tr>
 					<th><label for="cname">이름</label></th>
 					<td><input type="text" name="cname" id="cname" class="cname"
-						required="required" ></td>
+						required="required"></td>
 				</tr>
 				<tr>
 					<th><label for="ctel">전화</label></th>
@@ -67,22 +67,24 @@
 				</tr>
 				<tr>
 					<th><label for="cemail">이메일</label></th>
-					<td><input type="text" name="cemail" id="cemail" class="cemail"></td>
+					<td><input type="text" name="cemail" id="cemail"
+						class="cemail"></td>
 				</tr>
 				<tr>
 					<th><label for="caadress">주소</label></th>
-					<td><input type="text" name="caddress" id="caddress" class="caddress"></td>
+					<td><input type="text" name="caddress" id="caddress"
+						class="caddress"></td>
 				<tr>
 					<th><label for="cbirth">생년월일</label></th>
-					<td><input type="date" name="tempBirth" id="cbirth" class="cbirth"></td>
+					<td><input type="date" name="tempBirth" id="cbirth"
+						class="cbirth"></td>
 				</tr>
 				<tr>
 					<th><label for="cgender">성별</label></th>
 					<td><input type="radio" name="cgender" value="m"
-						checked="checked" id="m" class="cgender"><label for="m">남자</label> 
-						<input
-						type="radio" name="cgender" value="f" id="f" class="cgender"><label for="f">여자</label>
-					</td>
+						checked="checked" id="m" class="cgender"><label for="m">남자</label>
+						<input type="radio" name="cgender" value="f" id="f"
+						class="cgender"><label for="f">여자</label></td>
 				</tr>
 				<tr>
 					<td colspan="2"></td>

@@ -17,10 +17,6 @@
 	<jsp:useBean id="dto" class="com.lec.dto.CustomerDto" scope="page"/>
 	<jsp:setProperty property="*" name="dto"/>
 	<%
-		CustomerDto customer = (CustomerDto)session.getAttribute("customer");
-		if(customer == null){
-			response.sendRedirect(conPath + "/customer/loginForm.jsp");
-		}else{
 			String tempbirth = request.getParameter("tempBirth");
 			if(!tempbirth.equals("")){
 				dto.setCbirth(Date.valueOf(tempbirth));
@@ -51,6 +47,5 @@
 				 	history.back();
 				</script>	
 		  <%}%>
-	 <%}%>
 </body>
 </html>

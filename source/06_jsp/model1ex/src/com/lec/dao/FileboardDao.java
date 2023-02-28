@@ -155,7 +155,7 @@ public class FileboardDao {
 	private void preReplyStep(int fref, int fre_step) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE FILEBOARD SET fRE_STEP = fRE_STEP + 1" + "        WHERE fREF = ? AND fRE_STEP > ?";
+		String sql = "UPDATE FILEBOARD SET FRE_STEP = FRE_STEP + 1" + "        WHERE FREF = ? AND FRE_STEP > ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -193,8 +193,8 @@ public class FileboardDao {
 			pstmt.setString(3, dto.getFcontent());
 			pstmt.setString(4, dto.getFpw());
 			pstmt.setInt(5, dto.getFref());
-			pstmt.setInt(6, dto.getFre_step());
-			pstmt.setInt(7, dto.getFre_level());
+			pstmt.setInt(6, dto.getFre_step()+1);
+			pstmt.setInt(7, dto.getFre_level()+1);
 			pstmt.setString(8, dto.getFip());
 			result = pstmt.executeUpdate();
 			System.out.println(result == SUCCESS ? "답변글쓰기 성공" : "답변글쓰기 실패");
@@ -215,14 +215,14 @@ public class FileboardDao {
 	}
 
 	// -- 4. 조회수 올리기
-	public void hitUp(String fnum) {
+	public void hitUp(int fnum) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE FILEBOARD SET FHIT = FHIT + 1 WHERE FNUM = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, fnum);
+			pstmt.setInt(1, fnum);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

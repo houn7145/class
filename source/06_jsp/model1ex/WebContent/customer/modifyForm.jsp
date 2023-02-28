@@ -20,7 +20,7 @@
 	<%
 		CustomerDto customer = (CustomerDto)session.getAttribute("customer");
 		if(customer == null){
-			response.sendRedirect(conPath + "/customer/loginForm.jsp?method=modifyForm");
+			response.sendRedirect(conPath + "/customer/loginForm.jsp?method=customer/modifyForm");
 		}else{
 			id = customer.getCid();
 			name = customer.getCname();

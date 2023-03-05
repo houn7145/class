@@ -9,7 +9,7 @@
 	<link href="<%=conPath %>/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<form action="<%=conPath %>/ex1_servlet">
+	<form action="<%=conPath %>/ex1_servlet" method="post">
 		<p>ID <input type="text" name="id"></p>
 		<p>PW <input type="password" name="pw"></p>
 		<p>name <input type="text" name="name"></p>

@@ -31,4 +31,23 @@ tomcat컨테이너가 데이터베이스 인증을 하도록 context.xml 파일�
 	/>
 </Context>
 
-이를 이용하여 3일동안 회원가입 게시판과 글 작성 게시판을 만들음
+페이징 
+PAGESIZE : 한 페이지당 글 수
+BLOCKSIZE : 블록당 페이지 수
+currentPage : 현재 몇 페이지인지(int)
+pageNum : 현재 몇 페이지인지(String)
+stratRow : 시작 번호 - (현재페이지 - 1) * 페이지당 갯수+ 1
+endRow : 끝번호 - 시작번호 + 페이지당갯수 - 1
+pageCnt : 페이지 수 - Math.ceil((double)전체글갯수/페이지당 갯수)
+startPage : 시작 페이지 - ((현재페이지 -1)/블록당페이지수)*블록당페이지수 +1
+endPage : 끝 페이지 - 시작페이지 + 블록당페이지 수 -1
+
+답글로직
+1. 글 번호는 무조건 1씩 증가
+2. ref - 원글이면 글 번호와 같고 답변글이면 원글의 ref와 같음
+3. re_step - 원글이면 0 답변글이면 아래와 같이 진행
+	3-1. ref가 같고 re_step의 값이 원글의 res_step보다 큰 글이 있으면 re_step을 1 증가
+	3-2. 답변글 re_step = 원글 re_step + 1
+4. re_indent - 원글이면 0 답변글이면 원글의 re_indent + 1
+
+이를 이용하여 회원가입 게시판과 로그인 페이지, 글 작성 게시판, model1 파일첨부 및 답변 가능한 게시판을 만들음

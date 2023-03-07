@@ -11,9 +11,7 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<h1><a href="../insert.do">INSERT</a></h1>
-	<h1><a href="/ch18/select.do">SELECT</a></h1>
-	<h1><a href="${conPath }/update.do">UPDATE</a></h1>
-	<h1><a href="http://localhost:8090/ch18/delete.do">DELETE</a></h1>
+	<h1>update.jsp입니다</h1>
+	<h2>update 결과 : ${updateResult }</h2>
 </body>
 </html>

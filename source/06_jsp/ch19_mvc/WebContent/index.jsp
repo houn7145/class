@@ -9,11 +9,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link href="${conPath}/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<h1><a href="../insert.do">INSERT</a></h1>
-	<h1><a href="/ch18/select.do">SELECT</a></h1>
-	<h1><a href="${conPath }/update.do">UPDATE</a></h1>
-	<h1><a href="http://localhost:8090/ch18/delete.do">DELETE</a></h1>
+	<h1><a href="${conPath }/memberList.do">회원리스트</a></h1>
+	<h1><a href="${conPath }/memberJoinView.do">회원가입</a></h1>
 </body>
 </html>

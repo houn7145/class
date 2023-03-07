@@ -1,11 +1,15 @@
 package com.lec.frontcontroller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.lec.service.*;
 
 @WebServlet("*.do")
 public class Frontcontroller extends HttpServlet {
@@ -24,6 +28,36 @@ public class Frontcontroller extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		response.getWriter().append("<h1>FrontController</h1>");
 		// 무슨 요청이 들어왔는지 판별하고 해당 요청을 수행 후 view로 forward
+		// 판별 : (select.do, delete.do, insert.do, update.do)
+		String uri = request.getRequestURI(); 			  // 	 URI : /ch18/delete.do
+		String conPath = request.getContextPath(); 		  // conPath : /ch18
+		String command = uri.substring(conPath.length()); // command : /~~.do
+		response.getWriter().append("<h1>" + command + "</h1>");
+		System.out.println("uri : " + uri);
+		System.out.println("conPath : " + conPath);
+		System.out.println("들어온 요청 : " + command);
+		// 들어온 요청에 따라 해당 요청을 수행 후 view로 forward
+		String viewPage = null; // 뷰페이지를 저장할 변수
+		Service service = null; // InsertService, SelectService, DeleteService, UpdateService
+		if(command.equals("/insert.do")) {
+			service = new InsertService();
+			service.execute(request, response);
+			viewPage = "select.do";
+		}else if(command.equals("/select.do")){
+			service = new SelectService();
+			service.execute(request, response);
+			viewPage = "ex2/select.jsp";
+		}else if(command.equals("/update.do")) {
+			service = new UpdateService();
+			service.execute(request, response);
+			viewPage = "select.do";
+		}else if(command.equals("/delete.do")) {
+			service = new DeleteService();
+			service.execute(request, response);
+			viewPage = "select.do";
+		}
+		// view페이지로 forward
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage); 
+		dispatcher.forward(request, response);
 	}
-
 }

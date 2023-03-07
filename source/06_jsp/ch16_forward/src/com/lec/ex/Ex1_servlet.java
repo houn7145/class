@@ -1,6 +1,9 @@
 package com.lec.ex;
 
-import java.io.IOException;import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import java.io.IOException;
+import java.net.URLEncoder;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,10 +33,12 @@ public class Ex1_servlet extends HttpServlet {
 		String name = request.getParameter("name");
 		Member member =  new Member(id, pw, name);
 		// dao 생성해서 dao의 메소드 호출, 결과에 따라서 ~.jsp로 보냄
-		request.setAttribute("member", member);
+		// request.setAttribute("member", member);
 		// View 단으로
-		RequestDispatcher dispatcher = request.getRequestDispatcher("1_dispatchar/ex1_view.jsp");
-		dispatcher.forward(request, response);
+		// RequestDispatcher dispatcher = request.getRequestDispatcher("1_dispatchar/ex1_view.jsp");
+		// dispatcher.forward(request, response);
+		response.sendRedirect("2_redirect/ex1_view.jsp?id=" + id + "&pw=" + pw 
+					+ "&name=" + URLEncoder.encode(name, "utf-8"));
 	}
 	
 }

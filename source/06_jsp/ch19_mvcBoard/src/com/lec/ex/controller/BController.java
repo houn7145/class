@@ -35,9 +35,11 @@ public class BController extends HttpServlet {
 			service = new BListService();
 			service.execute(request, response);
 			viewPage = "board/list.jsp";
+			
 		}else if(command.equals("/writeView.do")) { // 글 쓰기 view
 			viewPage = "board/write_view.jsp";
 			writeView = 1;
+			
 		}else if(command.equals("/write.do")) { // 글 쓰기 (db에 저장)
 			if(writeView == 1) {
 				service = new BWriteService();
@@ -45,10 +47,41 @@ public class BController extends HttpServlet {
 				writeView = 0;
 			}
 			viewPage = "list.do";
+			
 		}else if(command.equals("/contentView.do")) { // 글 상세보기
 			service = new BContentService();
 			service.execute(request, response);
 			viewPage = "board/content_view.jsp";
+			
+		}else if(command.equals("/modifyView.do")) { // 글 수정 view
+			service = new BModifyViewService();
+			service.execute(request, response);
+			viewPage = "board/modify_view.jsp"; // modifyBoard, param.bid, param.pageNum
+			
+		}else if(command.equals("/modify.do")) { // 글 수정 (db에 저장)
+			service = new BModifyService();
+			service.execute(request, response);
+		//	viewPage = "list.do"; // modifyResult, param.pageNum, param.bid ...
+			viewPage = "contentView.do";
+			
+		}else if(command.equals("/delete.do")) { // 글 삭제
+			service = new BDeleteService();
+			service.execute(request, response);
+			viewPage = "list.do";
+			
+		}else if(command.equals("/replyView.do")) { // 답변 글쓰기 view
+			service = new BReplyViewService();
+			service.execute(request, response);
+			writeView = 1;
+			viewPage = "board/reply_view.jsp"; // replyBoard(원글 정보), param.pageNum
+			
+		}else if(command.equals("/reply.do")) { // 답변 글쓰기 (db에 저장)
+			if(writeView == 1) {
+				service = new BReplyService();
+				service.execute(request, response);
+				writeView = 0;
+			}
+			viewPage = "list.do"; // replyResult, param.pageNum ...
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

@@ -24,6 +24,33 @@
 			alert('글쓰기 실패');
 		</script>
 	</c:if>
+	<c:if test="${modifyResult eq SUCCESS }">
+		<script>
+			alert('글 수정 성공');
+		</script>
+	</c:if>
+	<c:if test="${modifyResult eq FAIL }">
+		<script>
+			alert('글 수정 실패');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty deleteResult }">
+		<script>
+			alert('${deleteResult}');
+		</script>
+	</c:if>
+	<c:if test="${replyResult eq SUCCESS }">
+		<script>
+			alert('${param.bid}번 글에 대한 답변글쓰기 성공');
+		</script>
+	</c:if>
+	<c:if test="${replyResult eq FAIL }">
+		<script>
+			alert('${param.bid}번 글에 대한 답변글쓰기 실패');
+			history.back();
+		</script>
+	</c:if>
 	<table>
 		<caption>게시판</caption>
 		<tr><td><a href="${conPath }/writeView.do">글쓰기</a></td></tr>

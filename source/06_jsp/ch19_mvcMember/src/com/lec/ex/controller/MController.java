@@ -51,7 +51,7 @@ public class MController extends HttpServlet {
 		}else if(command.equals("/join.do")) {
 			service = new MJoinService();
 			service.execute(request, response);
-			viewPage = "login.do";
+			viewPage = "loginView.do";
 			
 		}else if(command.equals("/logout.do")) {
 			service = new MLogoutService();

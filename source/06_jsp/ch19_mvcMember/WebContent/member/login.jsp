@@ -6,6 +6,24 @@
 <c:set var="conPath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
+	<c:set var="SUCCESS" value="1"/>
+	<c:set var="FAIL" value="0"/>
+	<c:if test="${confirmResult eq FAIL }">
+		<script>
+			alert('중복된 아이디 입니다');
+			history.back()
+		</script>
+	</c:if>
+	<c:if test="${joinResult eq SUCCESS }">
+		<script>
+			alert('회원가입 성공');
+		</script>
+	</c:if>
+	<c:if test="${joinResult eq FAIL }">
+		<script>
+			alert('회원가입 실패');
+		</script>
+	</c:if>
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>

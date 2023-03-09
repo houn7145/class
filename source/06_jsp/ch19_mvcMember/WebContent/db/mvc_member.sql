@@ -11,22 +11,22 @@ CREATE TABLE MVC_MEMBER(
 );
 -- DUMMY DATA
 INSERT INTO MVC_MEMBER (MID, MPW, MNAME, MEMAIL, MPHOTO, MBIRTH, MADDRESS)
-    VALUES('aaa', '111', '»´±Êµø', 'hong@h.com', 'NOIMG.JPG', '1988-12-12', 'º≠øÔ');
+    VALUES('aaa', '111', 'ÌôçÍ∏∏Îèô', 'hong@h.com', 'NOIMG.JPG', '1988-12-12', 'ÏÑúÏö∏');
 INSERT INTO MVC_MEMBER (MID, MPW, MNAME, MEMAIL, MPHOTO, MBIRTH, MADDRESS)
-    VALUES('bbb', '111', '±Ë±Êµø', 'h@h.com', 'gayun.jpg', '1995-07-02', '∞Ê±‚');
+    VALUES('bbb', '111', 'ÍπÄÍ∏∏Îèô', 'h@h.com', 'gayun.jpg', '1995-07-02', 'Í≤ΩÍ∏∞');
 
--- DAOø° µÈæÓ∞• QUERY
+-- DAOÏóê Îì§Ïñ¥Í∞à QUERY
 
--- 1. ID¡ﬂ∫π√º≈©
+-- 1. IDÏ§ëÎ≥µÏ≤¥ÌÅ¨
 SELECT * FROM MVC_MEMBER WHERE MID = 'zzz';
 
 -- 2. JOIN
 INSERT INTO MVC_MEMBER (MID, MPW, MNAME, MEMAIL, MPHOTO, MBIRTH, MADDRESS)
-    VALUES('bbb', '111', '±Ë±Êµø', 'h@h.com', 'gayun.jpg', '1995-07-02', '∞Ê±‚');
+    VALUES('bbb', '111', 'ÍπÄÍ∏∏Îèô', 'h@h.com', 'gayun.jpg', '1995-07-02', 'Í≤ΩÍ∏∞');
 
 -- 3. LOGIN CHECK
 SELECT * FROM MVC_MEMBER WHERE MID = 'aaa' AND MPW = '111';
 
--- 4. MID∑Œ MEMBERDTO ∞°¡Æø¿±‚
+-- 4. MIDÎ°ú MEMBERDTO Í∞ÄÏ†∏Ïò§Í∏∞
 SELECT * FROM MVC_MEMBER WHERE MID = 'aaa';
 commit;

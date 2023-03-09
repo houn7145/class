@@ -41,7 +41,7 @@ public class MJoinService implements Service {
 			try{
 				File serverFile = new File(path + "/" + mphoto);
 				is = new FileInputStream(serverFile);
-				os = new FileOutputStream("C:/houn/source/06_jsp/ch19_mvcMember/WebContent/memberPhotoUp" + mphoto);
+				os = new FileOutputStream("C:/houn/source/06_jsp/ch19_mvcMember/WebContent/memberPhotoUp/" + mphoto);
 				byte[] bs = new byte[(int)serverFile.length()];
 				int readByteCnt;
 				while((readByteCnt = is.read(bs)) != -1){

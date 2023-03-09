@@ -15,10 +15,14 @@
 <body>
 	<c:set var="SUCCESS" value="1"/>
 	<c:set var="FAIL" value="0"/>
-	<c:if test="${confirmResult eq FAIL }">
+	<c:if test="${logoutResult eq SUCCESS }">
 		<script>
-			alert('중복된 아이디 입니다');
-			history.back()
+			alert('로그아웃 성공');
+		</script>
+	</c:if>
+	<c:if test="${logoutResult eq FAIL }">
+		<script>
+			alert('로그아웃 실패');
 		</script>
 	</c:if>
 	<c:if test="${loginResult eq SUCCESS }">
@@ -30,26 +34,6 @@
 		<script>
 			alert('아이디와 비밀번호를 확인하세요');
 			history.back();
-		</script>
-	</c:if>
-	<c:if test="${joinResult eq SUCCESS }">
-		<script>
-			alert('회원가입 성공');
-		</script>
-	</c:if>
-	<c:if test="${joinResult eq FAIL }">
-		<script>
-			alert('회원가입 실패');
-		</script>
-	</c:if>
-	<c:if test="${logoutResult eq SUCCESS }">
-		<script>
-			alert('로그아웃 성공');
-		</script>
-	</c:if>
-	<c:if test="${logoutResult eq FAIL }">
-		<script>
-			alert('로그아웃 실패');
 		</script>
 	</c:if>
 	<c:if test="${not empty member }">

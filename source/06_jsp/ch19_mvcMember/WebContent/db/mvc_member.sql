@@ -19,7 +19,7 @@ INSERT INTO MVC_MEMBER (MID, MPW, MNAME, MEMAIL, MPHOTO, MBIRTH, MADDRESS)
 
 -- 1. ID중복체크
 SELECT * FROM MVC_MEMBER WHERE MID = 'zzz';
-
+ 
 -- 2. JOIN
 INSERT INTO MVC_MEMBER (MID, MPW, MNAME, MEMAIL, MPHOTO, MBIRTH, MADDRESS)
     VALUES('bbb', '111', '김길동', 'h@h.com', 'gayun.jpg', '1995-07-02', '경기');
@@ -29,4 +29,26 @@ SELECT * FROM MVC_MEMBER WHERE MID = 'aaa' AND MPW = '111';
 
 -- 4. MID로 MEMBERDTO 가져오기
 SELECT * FROM MVC_MEMBER WHERE MID = 'aaa';
+
+-- 5. 회원정보 수정
+UPDATE MVC_MEMBER SET MPW = '1',
+                      MNAME = '송중기',
+                      MEMAIL = 'SONG@S.COM',
+                      MPHOTO = 'NOIMG.JPG',
+                      MBIRTH = '1995-12-12',
+                      MADDRESS = '서대문'
+        WHERE MID = 'song';
+
+-- 6. 회원 리스트(TOP-N)
+SELECT * FROM MVC_MEMBER ORDER BY MRDATE DESC; -- 신규 가입 회원순
+SELECT ROWNUM RN, A.* FROM (SELECT * FROM MVC_MEMBER ORDER BY MRDATE DESC) A;
+SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM MVC_MEMBER ORDER BY MRDATE DESC) A)
+    WHERE RN BETWEEN 4 AND 7;
+    
+-- 7. 전체 회원 수
+SELECT COUNT(*) CNT FROM MVC_MEMBER;
+
+-- 8. 회원 탈퇴
+DELETE FROM MVC_MEMBER WHERE MID = 'aaa';
+
 commit;

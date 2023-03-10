@@ -11,7 +11,7 @@
 	<c:if test="${confirmResult eq FAIL }">
 		<script>
 			alert('중복된 아이디 입니다');
-			history.back()
+			history.back();
 		</script>
 	</c:if>
 	<c:if test="${joinResult eq SUCCESS }">
@@ -22,6 +22,7 @@
 	<c:if test="${joinResult eq FAIL }">
 		<script>
 			alert('회원가입 실패');
+			history.back();
 		</script>
 	</c:if>
 <head>

@@ -16,11 +16,11 @@ public class MLoginService implements Service {
 		String mpw = request.getParameter("mpw");
 		MemberDao mDao = new MemberDao();
 		int result = mDao.loginCheck(mid, mpw);
-		if(result == mDao.SUCCESS) {
+		if(result == MemberDao.LOGIN_SUCCESS) {
 			MemberDto member = mDao.getMember(mid);
 			session.setAttribute("member", member);
 			request.setAttribute("loginResult", result);
-		}else if(result == mDao.FAIL) {
+		}else if(result == MemberDao.LOGIN_FAIL) {
 			request.setAttribute("loginResult", result);
 		}
 	}

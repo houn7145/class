@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">	
 	<title>Insert title here</title>
 	<style>
+		table{width: 400px; margin: 0 auto;}
 		h1, p, tr{text-align: center;}
 		table td {
 			width:100px; height:100px; background-color: #AAFFAA;
@@ -19,7 +20,7 @@
 			var idx = $(this).attr('id');
 			if(ddukIdx == idx){
 				$('td').removeClass('tdRed');
-				$(this).css({"background":"url(../img/dduk.jpg)"});
+				$(this).css({"background":"url(img/dduk.jpg)"}).css('backgroundSize','100%');
 				$('.result').text('축하합니다 맞췄습니다');
 			}else{
 				$('td').removeClass('tdRed');
@@ -33,9 +34,9 @@
 <body>
 	<h1>떡이 있는 곳을 맞춰보세요</h1>
 	<table>
-		<tr><td id="1"></td><td id="2"></td><td id="3"></td></tr>
-		<tr><td id="4"></td><td id="5"></td><td id="6"></td></tr>
-		<tr><td id="7"></td><td id="8"></td><td id="9"></td></tr>
+		<tr><td id="0"></td><td id="1"></td><td id="2"></td></tr>
+		<tr><td id="3"></td><td id="4"></td><td id="5"></td></tr>
+		<tr><td id="6"></td><td id="7"></td><td id="8"></td></tr>
 	</table>
 	<p class="result"></p>
 </body>

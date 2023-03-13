@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">	
 	<title>Insert title here</title>
 	<style>
-		p {text-align: center;}
+		p, h1 {text-align: center;}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
 	<script>
@@ -33,7 +33,21 @@
 			var n1 = $('input[name=n1]').val();
 			var n2 = $('input[name=n2]').val();
 			var answer = $('input[name=answer]').val().trim();
-			if(Number(n1) + Number(n2) == Number(answer)){
+			switch(op[i]){
+			case "+":
+				result = Number(n1) + Number(n2);
+				break;
+			case "-":
+				result = Number(n1) - Number(n2);
+				break;
+			case "*":
+				result = Number(n1) * Number(n2);
+				break;
+			case "/":
+				result = Number(n1) / Number(n2);
+				break;
+			}
+			if(result == Number(answer)){
 				$('.result').text('정답입니다');
 			}else{
 				$('.result').text('오답입니다');

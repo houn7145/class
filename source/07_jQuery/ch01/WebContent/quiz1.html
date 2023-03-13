@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">	
+	<title>Insert title here</title>
+	<style>
+		h1, p, tr{text-align: center;}
+		table td {
+			width:100px; height:100px; background-color: #AAFFAA;
+			text-align: center;
+		}
+		.tdRed {background-color: red;}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+	<script>
+	 $(document).ready(function(){
+		 var ddukIdx = parseInt(Math.random()*9);
+		 $('td').on('click', function() {
+			var idx = $(this).attr('id');
+			if(ddukIdx == idx){
+				$('td').removeClass('tdRed');
+				$(this).css({"background":"url(../img/dduk.jpg)"});
+				$('.result').text('축하합니다 맞췄습니다');
+			}else{
+				$('td').removeClass('tdRed');
+				$(this).addClass('tdRed');
+				$('.result').text('틀렸습니다 다시 고르세요');
+			}
+		});
+	 });
+	</script>
+</head>
+<body>
+	<h1>떡이 있는 곳을 맞춰보세요</h1>
+	<table>
+		<tr><td id="1"></td><td id="2"></td><td id="3"></td></tr>
+		<tr><td id="4"></td><td id="5"></td><td id="6"></td></tr>
+		<tr><td id="7"></td><td id="8"></td><td id="9"></td></tr>
+	</table>
+	<p class="result"></p>
+</body>
+</html>

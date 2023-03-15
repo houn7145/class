@@ -1,43 +1,29 @@
 package com.lec.ex.dto;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class BoardDto {
-	private int fid;
+	private int    fid;
 	private String mid;
+	private String mname;
 	private String ftitle;
 	private String fcontent;
-	private String ffilename;
-	private Date frdate;
-	private int fhit;
-	private int fgroup;
-	private int fstep;
-	private int findent;
+	private String ffileName;
+	private Timestamp frdate;
+	private int    fhit;
+	private int    fgroup;
+	private int    fstep;
+	private int    findent;
 	private String fip;
-	private String mname;
 	public BoardDto() {}
-	public BoardDto(int fid, String mid, String ftitle, String fcontent, String ffilename, Date frdate, int fhit,
-			int fgroup, int fstep, int findent, String fip, String mname) {
+	public BoardDto(int fid, String mid, String mname, String ftitle, String fcontent, String ffileName,
+			Timestamp frdate, int fhit, int fgroup, int fstep, int findent, String fip) {
 		this.fid = fid;
 		this.mid = mid;
-		this.ftitle = ftitle;
-		this.fcontent = fcontent;
-		this.ffilename = ffilename;
-		this.frdate = frdate;
-		this.fhit = fhit;
-		this.fgroup = fgroup;
-		this.fstep = fstep;
-		this.findent = findent;
-		this.fip = fip;
 		this.mname = mname;
-	}
-	public BoardDto(int fid, String mid, String ftitle, String fcontent, String ffilename, Date frdate, int fhit,
-			int fgroup, int fstep, int findent, String fip) {
-		this.fid = fid;
-		this.mid = mid;
 		this.ftitle = ftitle;
 		this.fcontent = fcontent;
-		this.ffilename = ffilename;
+		this.ffileName = ffileName;
 		this.frdate = frdate;
 		this.fhit = fhit;
 		this.fgroup = fgroup;
@@ -57,6 +43,12 @@ public class BoardDto {
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
 	public String getFtitle() {
 		return ftitle;
 	}
@@ -69,17 +61,17 @@ public class BoardDto {
 	public void setFcontent(String fcontent) {
 		this.fcontent = fcontent;
 	}
-	public String getFfilename() {
-		return ffilename;
+	public String getFfileName() {
+		return ffileName;
 	}
-	public void setFfilename(String ffilename) {
-		this.ffilename = ffilename;
+	public void setFfileName(String ffileName) {
+		this.ffileName = ffileName;
 	}
-	public Date getFdate() {
+	public Timestamp getFrdate() {
 		return frdate;
 	}
-	public void setFdate(Date fdate) {
-		this.frdate = fdate;
+	public void setFrdate(Timestamp frdate) {
+		this.frdate = frdate;
 	}
 	public int getFhit() {
 		return fhit;
@@ -111,16 +103,10 @@ public class BoardDto {
 	public void setFip(String fip) {
 		this.fip = fip;
 	}
-	public String getMname() {
-		return mname;
-	}
-	public void setMname(String mname) {
-		this.mname = mname;
-	}
 	@Override
 	public String toString() {
-		return "BoardDto [fid=" + fid + ", mid=" + mid + ", ftitle=" + ftitle + ", fcontent=" + fcontent
-				+ ", ffilename=" + ffilename + ", fdate=" + frdate + ", fhit=" + fhit + ", fgroup=" + fgroup + ", fstep="
-				+ fstep + ", findent=" + findent + ", fip=" + fip + ", mname=" + mname + "]";
+		return "BoardDto [fid=" + fid + ", mid=" + mid + ", mname=" + mname + ", ftitle=" + ftitle + ", fcontent="
+				+ fcontent + ", ffileName=" + ffileName + ", frdate=" + frdate + ", fhit=" + fhit + ", fgroup=" + fgroup
+				+ ", fstep=" + fstep + ", findent=" + findent + ", fip=" + fip + "]";
 	}
 }

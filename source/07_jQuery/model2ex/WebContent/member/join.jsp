@@ -18,7 +18,7 @@
 			$('input[name="mid"]').keyup(function() {
 				var mid = $(this).val();
 				if(mid.length < 2){
-					$('#idConfirmResult').text('아이디는 2글자 이상');
+					$('#midConfirmResult').text('아이디는 2글자 이상');
 				}else{
 					$.ajax({
 						url : '${conPath}/midConfirm.do',
@@ -26,7 +26,7 @@
 						data : 'mid=' + mid,
 						dataType : 'html',
 						success : function(data) {
-							$('#idConfirmResult').html(data);
+							$('#midConfirmResult').html(data);
 						},
 					});// ajax함수
 				}// if
@@ -36,29 +36,36 @@
 				var pw = $('#mpw').val();
 				var pwChk = $('#mpwChk').val();
 				if(pw == pwChk){
-					$('#pwChkResult').text('비밀번호 일치');
+					$('#mpwChkResult').text('비밀번호 일치');
 				}else{
-					$('#pwChkResult').text('비밀번호 불일치');
+					$('#mpwChkResult').text('비밀번호 불일치');
 				}
 			});// keyup event - pw
 			
+			var patternMemail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/;
 			$('#memail').keyup(function() {
 				var memail = $('#memail').val();
-				$.ajax({
-					url : '${conPath}/memailConfirm.do',
-					type : 'get',
-					data : 'memail=' + memail,
-					dataType : 'html',
-					success : function(data) {
-						$('#emailConfirmResult').html(data);
-					},
-				});
+				if(!memail){
+	  				$('#memailConfirmResult').html(' &nbsp; ');
+	  			}else if(!memail.match(patternMemail)){
+	  				$('#memailConfirmResult').html('<b>메일 형식을 지켜 주세요</b>');
+	  			}else{
+	  				$.ajax({
+						url : '${conPath}/memailConfirm.do',
+						type : 'get',
+						data : 'memail=' + memail,
+						dataType : 'html',
+						success : function(data) {
+							$('#memailConfirmResult').html(data);
+						},
+					});
+	  			}
 			});// keup event - email
 			
 			$('form').submit(function() {
-				var idConfirmResult = $('#idConfirmResult').text().trim();
-				var pwChkResult = $('#pwChkResult').text().trim();
-				var emailChkResult = $('#emailChkResult').text().trim();
+				var idConfirmResult = $('#midConfirmResult').text().trim();
+				var pwChkResult = $('#mpwChkResult').text().trim();
+				var emailChkResult = $('#memailChkResult').text().trim();
 				if(idConfirmResult != '사용 가능한 ID입니다'){
 					alert('사용 가능한 ID가 아닙니다');
 					return false; 
@@ -103,7 +110,7 @@
 					<th>아이디</th>
 					<td>
 						<input type="text" name="mid" id="mid" required="required" autofocus="autofocus">
-						<div id="idConfirmResult"> &nbsp; &nbsp; &nbsp; </div>
+						<div id="midConfirmResult"> &nbsp; &nbsp; &nbsp; </div>
 					</td>
 					
 				</tr>
@@ -114,7 +121,7 @@
 					<th>비밀번호</th>
 					<td>
 						<input type="password" name="mpwChk" id="mpwChk" required="required">
-						<div id="pwChkResult"> &nbsp; &nbsp; &nbsp; </div>
+						<div id="mpwChkResult"> &nbsp; &nbsp; &nbsp; </div>
 					</td>
 				</tr>
 				<tr>
@@ -124,7 +131,7 @@
 					<th>메일</th>
 					<td>
 						<input type="text" name="memail" id="memail">
-						<div id="emailConfirmResult"> &nbsp; &nbsp; &nbsp; </div>
+						<div id="memailConfirmResult"> &nbsp; &nbsp; &nbsp; </div>
 					</td>
 				</tr>
 				<tr>

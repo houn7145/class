@@ -27,7 +27,7 @@ public class MModifyService implements Service {
 		String mphoto = null; // 첨부파일 이름이 저장될 변수
 		int result = MemberDao.FAIL;
 		try {
-			// mRequest 객체 생성(서버에 업로드딘 파일 저장) 후 파일 이름 받아오기 
+			// mRequest 객체 생성(서버에 업로드된 파일 저장) 후 파일 이름 받아오기 
 			MultipartRequest mRequest = new MultipartRequest(request, path, maxSize, "utf-8", new DefaultFileRenamePolicy());
 			Enumeration<String> params = mRequest.getFileNames();
 			// while(params.hasMoreElements()) {
@@ -46,11 +46,11 @@ public class MModifyService implements Service {
 			// 	sessionMphoto = member.getMphoto();
 			// }
 			String mid = mRequest.getParameter("mid");
-			String oldMpw = mRequest.getParameter("oldMpw");
-			if(!oldMpw.equals(dbMpw)) {
-				request.setAttribute("modifyErrorMsg", "현 비밀번호를 확인하세요");
-				return;
-			}
+//			String oldMpw = mRequest.getParameter("oldMpw");
+//			if(!oldMpw.equals(dbMpw)) {
+//				request.setAttribute("modifyErrorMsg", "현 비밀번호를 확인하세요");
+//				return;
+//			}
 			String mpw = mRequest.getParameter("mpw");
 			if(mpw.equals("")) { // 새 비밀번호를 입력하지 않았을 경우 현 비밀번호로 교체
 				mpw = dbMpw;

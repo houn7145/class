@@ -40,7 +40,6 @@
 	<c:if test="${not empty modifyErrorMsg }">
 		<script>
 			alert('${modifyErrorMsg}');
-			history.back();
 		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>

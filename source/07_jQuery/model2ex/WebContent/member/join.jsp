@@ -138,7 +138,7 @@
 					<th>사진</th><td><input type="file" name="mphoto"></td>
 				</tr>
 				<tr>
-					<th>생년월일</th><td><input type="date" name="mbirth" id="datepicker"></td>
+					<th>생년월일</th><td><input type="text" name="mbirth" id="datepicker"></td>
 				</tr>
 				<tr>
 					<th>주소</th><td><input type="text" name="maddress"></td>

@@ -16,13 +16,13 @@
   	<c:if test="${not empty member }">
   		<script>
   			alert('사용자는 들어오실 수 없습니다');
-  			history.back();
+  			location.href='${conPath}/main.do';
   		</script>
   	</c:if>
   	<c:if test="${not empty admin }">
   		<script>
   			alert('이미 관리자 모드로 들어오셨습니다');
-  			history.back();
+  			location.href='${conPath}/main.do';
   		</script>
   	</c:if>
 </head>

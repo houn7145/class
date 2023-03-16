@@ -1,7 +1,6 @@
 package com.lec.ex.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,8 +15,8 @@ import javax.sql.DataSource;
 import com.lec.ex.dto.BoardDto;
 
 public class BoardDao {
-	private final int SUCCESS = 1;
-	private final int FAIL = 0;
+	public final static int SUCCESS = 1;
+	public final static int FAIL = 0;
 	private DataSource ds;
 
 	public BoardDao() {
@@ -315,9 +314,9 @@ public class BoardDao {
 
 	// (9) 답변글 쓰기 전 단계(원글의 fgroup과 같고, 원글의 fstep보다 크면 fstep을 하나 증가하기)
 	private void preReplyBoardStep(int bgroup, int bstep) {
-		Connection conn = null;
+		Connection        conn  = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE FILEBOARD SET FSTEP = FSTEP + ? WHERE FGROUP=5 AND FSTEP>?";
+		String sql = "UPDATE FILEBOARD SET FSTEP = FSTEP + 1 WHERE FGROUP=? AND FSTEP>?";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -328,27 +327,25 @@ public class BoardDao {
 			System.out.println(e.getMessage() + " preReplyStep에서 오류");
 		} finally {
 			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
+				if(pstmt != null) pstmt.close();
+				if(conn  != null) conn.close();
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
-			}
+			} 
 		}
 	}
-
 	// (10) 답변글 쓰기
-	// 답변글쓴이 : mid, ftitle, fcontent, ffilename
-	// 시스템적으로 : fip
-	// 원글 : fgroup, fstep, findent
+		//  답변글쓴이    : mid, ftitle, fcontent, ffilename
+		//  시스템적으로 : fip
+		//  원글             : fgroup, fstep, findent
 	public int reply(BoardDto dto) {
 		int result = FAIL;
 		preReplyBoardStep(dto.getFgroup(), dto.getFstep());
-		Connection conn = null;
+		Connection        conn  = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO FILEBOARD (FID, MID, FTITLE, FCONTENT, " + "FFILENAME, FGROUP, FSTEP, FINDENT, FIP)"
-				+ "  VALUES (FILEBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO FILEBOARD (FID, MID, FTITLE, FCONTENT, "
+				+ 					"FFILENAME, FGROUP, FSTEP, FINDENT, FIP)" + 
+				"  VALUES (FILEBOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -367,13 +364,11 @@ public class BoardDao {
 			System.out.println(e.getMessage() + " 답변글쓰기 실패 ");
 		} finally {
 			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
+				if(pstmt != null) pstmt.close();
+				if(conn  != null) conn.close();
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
-			}
+			} 
 		}
 		return result;
 	}

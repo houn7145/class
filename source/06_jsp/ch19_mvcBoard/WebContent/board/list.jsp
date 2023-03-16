@@ -18,8 +18,8 @@
 				if(!isNaN(bid)){
 					location.href = '${conPath }/contentView.do?bid=' + bid + '&pageNum=${pageNum}';
 				}
-			})
-		})
+			});
+		});
 	</script>
 </head>
 <body>

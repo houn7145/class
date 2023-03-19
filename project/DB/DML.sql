@@ -33,7 +33,7 @@ SELECT COUNT(*) FROM MEMBER;
 SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM FREEBOARD WHERE MID = 'BBB' ORDER BY FRDATE DESC)A)
     WHERE RN BETWEEN 1 AND 2;
 
--- 7-2. 페이징시 필요한 등록한 글 갯수 (자유게시판)
+-- 7-2. 페이징시 필요한 등록한 글 갯수 (자유게시판) // 보류
 SELECT COUNT(*) FROM FREEBOARD WHERE MID = 'BBB';
 
 -- 8-1. 내가 등록한 음식점 보기 - 페이징 // 보류
@@ -41,7 +41,7 @@ SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM RESTAURANT WHERE MID = 
     WHERE RN BETWEEN 1 AND 2;
 
 -- 8-2. 페이징시 필요한 등록한 음식점 갯수
-SELECT COUNT(*) FROM RESTAURANT WHERE MID = 'BBB';
+SELECT COUNT(*) FROM RESTAURANT;
 
 --------------------------------
 ----------------- ADMIN

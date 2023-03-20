@@ -33,7 +33,7 @@ SELECT COUNT(*) FROM MEMBER;
 SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM FREEBOARD WHERE MID = 'BBB' ORDER BY FRDATE DESC)A)
     WHERE RN BETWEEN 1 AND 2;
 
--- 7-2. 페이징시 필요한 등록한 글 갯수 (자유게시판) // 보류
+-- 7-2. 페이징시 필요한 등록한 글 갯수 (자유게시판)
 SELECT COUNT(*) FROM FREEBOARD WHERE MID = 'BBB';
 
 -- 8-1. 내가 등록한 음식점 보기 - 페이징 // 보류
@@ -41,22 +41,35 @@ SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM RESTAURANT WHERE MID = 
     WHERE RN BETWEEN 1 AND 2;
 
 -- 8-2. 페이징시 필요한 등록한 음식점 갯수
-SELECT COUNT(*) FROM RESTAURANT;
+SELECT COUNT(*) FROM RESTAURANT WHERE MID = 'BBB';
 
 --------------------------------
 ----------------- ADMIN
 --------------------------------
---1. ADMIN 로그인 체크
+-- 1. ADMIN 로그인 체크
 SELECT * FROM ADMIN WHERE AID = 'ADMIN' AND APW = '1';
 
---2. 관리자 로그인 후 세션에 넣을 용도 (DTO 가져오기)
+-- 2. 관리자 로그인 후 세션에 넣을 용도 (DTO 가져오기)
 SELECT * FROM  ADMIN WHERE AID = 'ADMIN';
 
 --------------------------------
 ----------------- NOTICEBOARD
 --------------------------------
---1. 공지게시판 글 등록
+-- 1. 공지게시판 글 등록
 INSERT INTO NOTICEBOARD (NNO, AID, NTITLE, NCONTENT)
     VALUES (NOTICE_SEQ.NEXTVAL, 'ADMIN', '공지1', '본문');
 
---2.
+-- 2-1. 공지게시판 글 목록보기 - 페이징
+SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM NOTICEBOARD ORDER BY NRDATE)A)
+    WHERE RN BETWEEN 1 AND 2;
+
+-- 2-2. 페이징시 필요한 등록한 글 갯수 (공지게시판)
+SELECT COUNT(*) FROM NOTICEBOARD;
+
+-- 3. 공지게시판 글 수정
+UPDATE NOTICEBOARD SET NTITLE = '바뀐 제목',
+                       NCONTENT = '바뀐 본문'
+    WHERE NNO = '1';
+
+-- 4. 공지게시판 글 삭제
+DELETE FROM NOTICEBOARD NOTICEBOARD WHERE NNO = '1';

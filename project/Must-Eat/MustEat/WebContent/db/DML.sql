@@ -64,18 +64,20 @@ SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM RESTAURANT ORDER BY RRD
 SELECT COUNT(*) FROM RESTAURANT;
 
 -- 2. 맛집 등록
-INSERT INTO RESTAURANT (RNO, MID, CNO, RPLACE, RNAME, RCONTENT, MAINIMG, SUBIMG1, SUBIMG2, RTEL)
-    VALUES (RES_SEQ.NEXTVAL, 'AAA', 1, '인천', '인천식당', '깔끔해요', 'IMAGE1', NULL, NULL, '02-111-1111');
+INSERT INTO RESTAURANT (RNO, MID, CNO, RPLACE, RNAME, RCONTENT, MAINIMG, SUBIMG1, SUBIMG2, RTEL, RMENU, RPRICE)
+    VALUES (RES_SEQ.NEXTVAL, 'AAA', 1, '인천', '인천식당', '깔끔해요', 'IMAGE1', NULL, NULL, '02-111-1111', '제육볶음', '12000');
 
 -- 3. 등록한 맛집 수정
 UPDATE RESTAURANT SET CNO = 2,
                       RPLACE = '서울',
-                      RTITLE = '서울식당',
+                      RNAME = '서울식당',
                       RCONTENT = '깨끗해요',
                       MAINIMG = 'IMAGE2',
                       SUBIMG1 = 'IMG1',
                       SUBIMG2 = 'IMG2',
-                      RTEL = '02-123-1234'
+                      RTEL = '02-123-1234',
+                      RMENU = '순두부',
+                      RPRICE = '10000'
     WHERE RNO = 1;
 
 -- 4. 등록한 맛집 삭제
@@ -115,7 +117,7 @@ INSERT INTO ONEREVIEW (ONO, RNO, MID, OCONTENT)
 DELETE FROM ONEREVIEW WHERE ONO = '4';
 
 -- 3. 맛집 한줄평 출력
-SELECT * FROM ONEREVIEW WHERE RNO = '2'; 
+SELECT * FROM ONEREVIEW WHERE RNO = '1' ORDER BY ORECOMMAND DESC; 
 
 -- 4. 좋아요 클릭
 UPDATE ONEREVIEW SET ORECOMMAND = ORECOMMAND + 1
@@ -125,6 +127,7 @@ UPDATE ONEREVIEW SET ORECOMMAND = ORECOMMAND + 1
 UPDATE ONEREVIEW SET ORECOMMAND = ORECOMMAND - 1
     WHERE ONO = '1';
 
+SELECT * FROM ONEREVIEW;
 --------------------------------
 ----------------- ADMIN
 --------------------------------

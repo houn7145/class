@@ -92,7 +92,7 @@ public class OneReviewDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM ONEREVIEW WHERE RNO = ?";
+		String sql = "SELECT * FROM ONEREVIEW WHERE RNO = ? ORDER BY ORECOMMAND DESC";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);

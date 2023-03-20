@@ -54,7 +54,12 @@ public class RestaurantDao {
 				String subimg1 = rs.getString("subimg1");
 				String subimg2 = rs.getString("subimg2");
 				String rtel = rs.getString("rtel");
-				Restaurants.add(new RestaurantDto(rno, mid, cno, rname, rcontent, rplace, mainimg, subimg1, subimg2, rtel, 0, null, 0));
+				String rmenu = rs.getString("rmenu");
+				String rprice = rs.getString("rprice");
+				int rhit = rs.getInt("rhit");
+				Timestamp rrdate = rs.getTimestamp("rrdate");
+				int avghit = rs.getInt("avghit");
+				Restaurants.add(new RestaurantDto(rno, mid, cno, rname, rcontent, rplace, mainimg, subimg1, subimg2, rtel, rmenu, rprice, rhit, rrdate, avghit));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -108,7 +113,7 @@ public class RestaurantDao {
 		int result = FAIL;
 		Connection 		  conn 	= null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO RESTAURANT (RNO, MID, CNO, RPLACE, RNAME, RCONTENT, MAINIMG, SUBIMG1, SUBIMG2, RTEL)" + 
+		String sql = "INSERT INTO RESTAURANT (RNO, MID, CNO, RPLACE, RNAME, RCONTENT, MAINIMG, SUBIMG1, SUBIMG2, RTEL, RMENU, RPRICE)" + 
 				"    VALUES (RES_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = ds.getConnection();
@@ -122,6 +127,8 @@ public class RestaurantDao {
 			pstmt.setString(7, dto.getSubimg1());
 			pstmt.setString(8, dto.getSubimg2());
 			pstmt.setString(9, dto.getRtel());
+			pstmt.setString(10, dto.getRmenu());
+			pstmt.setString(11, dto.getRprice());
 			pstmt.executeUpdate();
 			result = SUCCESS;
 			System.out.println("등록 성공");
@@ -152,7 +159,9 @@ public class RestaurantDao {
 				"                      MAINIMG = ?," + 
 				"                      SUBIMG1 = ?," + 
 				"                      SUBIMG2 = ?," + 
-				"                      RTEL = ?" + 
+				"                      RTEL = ?," +
+				"					   RMENU = ?," +
+				"                      RPRICE = ?" +		
 				"    WHERE RNO = ?";
 		try {
 			conn = ds.getConnection();
@@ -165,7 +174,9 @@ public class RestaurantDao {
 			pstmt.setString(6, dto.getSubimg1());
 			pstmt.setString(7, dto.getSubimg2());
 			pstmt.setString(8, dto.getRtel());
-			pstmt.setInt(9, dto.getRno());
+			pstmt.setString(9, dto.getRmenu());
+			pstmt.setString(10, dto.getRprice());
+			pstmt.setInt(11, dto.getRno());
 			pstmt.executeUpdate();
 			result = SUCCESS;
 			System.out.println("정보수정 성공");
@@ -321,10 +332,12 @@ public class RestaurantDao {
 				String subimg1 = rs.getString("subimg1");
 				String subimg2 = rs.getString("subimg2");
 				String rtel = rs.getString("rtel");
+				String rmenu = rs.getString("rmenu");
+				String rprice = rs.getString("rprice");
 				int rhit = rs.getInt("rhit");
 				Timestamp rrdate = rs.getTimestamp("rrdate");
 				int avghit = rs.getInt("avghit");
-				dto = new RestaurantDto(rno, mid, cno, rname, rcontent, rplace, mainimg, subimg1, subimg2, rtel, rhit, rrdate, avghit);
+				dto = new RestaurantDto(rno, mid, cno, rname, rcontent, rplace, mainimg, subimg1, subimg2, rtel, rmenu, rprice, rhit, rrdate, avghit);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -364,10 +377,12 @@ public class RestaurantDao {
 				String subimg1 = rs.getString("subimg1");
 				String subimg2 = rs.getString("subimg2");
 				String rtel = rs.getString("rtel");
+				String rmenu = rs.getString("rmenu");
+				String rprice = rs.getString("rprice"); 
 				int rhit = rs.getInt("rhit");
 				Timestamp rrdate = rs.getTimestamp("rrdate");
 				int avghit = rs.getInt("avghit");
-				dtos.add(new RestaurantDto(rno, mid, cno, rname, rcontent, rplace, mainimg, subimg1, subimg2, rtel, rhit, rrdate, avghit));
+				dtos.add(new RestaurantDto(rno, mid, cno, rname, rcontent, rplace, mainimg, subimg1, subimg2, rtel, rmenu, rprice, rhit, rrdate, avghit));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

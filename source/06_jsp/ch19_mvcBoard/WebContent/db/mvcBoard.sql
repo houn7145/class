@@ -8,27 +8,27 @@ CREATE TABLE MVC_BOARD(
     BNAME VARCHAR2(50) NOT NULL,
     BTITLE VARCHAR2(100) NOT NULL,
     BCONTENT VARCHAR2(1000),
-    BDATE DATE DEFAULT SYSDATE NOT NULL, -- ÀÛ¼ºÀÏ
-    BHIT NUMBER(6) DEFAULT 0 NOT NULL, -- Á¶È¸¼ö
-    BGROUP NUMBER(6) NOT NULL, -- ¿ø±ÛÀÌ¸é BID¿Í °°°í, ´äº¯±ÛÀÏ °æ¿ì ¿ø±ÛÀÇ BGROUP¿Í °°À½
-    BSTEP NUMBER(3) NOT NULL, -- °°Àº ±×·ì³» Ãâ·Â ¼ø¼­
-    BINDENT NUMBER(3) NOT NULL, -- µé¿©¾²±â Á¤µµ
+    BDATE DATE DEFAULT SYSDATE NOT NULL, -- ï¿½Û¼ï¿½ï¿½ï¿½
+    BHIT NUMBER(6) DEFAULT 0 NOT NULL, -- ï¿½ï¿½È¸ï¿½ï¿½
+    BGROUP NUMBER(6) NOT NULL, -- ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ BIDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½äº¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BGROUPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    BSTEP NUMBER(3) NOT NULL, -- ï¿½ï¿½ï¿½ï¿½ ï¿½×·ì³» ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    BINDENT NUMBER(3) NOT NULL, -- ï¿½é¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     BIP VARCHAR2(20)
 );
 CREATE SEQUENCE MVC_BOARD_SEQ MAXVALUE 999999 NOCACHE NOCYCLE;
 
 -- dummy data
 INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
-    VALUES (MVC_BOARD_SEQ.NEXTVAL, 'È«', 'Á¦¸ñ', NULL, MVC_BOARD_SEQ.CURRVAL, 0, 0, '192.1.1.2');
+    VALUES (MVC_BOARD_SEQ.NEXTVAL, 'È«', 'ï¿½ï¿½ï¿½ï¿½', NULL, MVC_BOARD_SEQ.CURRVAL, 0, 0, '192.1.1.2');
 INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
-    VALUES (MVC_BOARD_SEQ.NEXTVAL, '±è', 'ºñ¿Í', NULL, MVC_BOARD_SEQ.CURRVAL, 0, 0, '192.1.1.5');
-    -- 2¹ø±ÛÀÇ ´ä±Û
+    VALUES (MVC_BOARD_SEQ.NEXTVAL, 'ï¿½ï¿½', 'ï¿½ï¿½ï¿½', NULL, MVC_BOARD_SEQ.CURRVAL, 0, 0, '192.1.1.5');
+    -- 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
-    VALUES (MVC_BOARD_SEQ.NEXTVAL, 'ÀÌ', '´ä', '´ä', 2, 1, 1, '127.1.1.1');
+    VALUES (MVC_BOARD_SEQ.NEXTVAL, 'ï¿½ï¿½', 'ï¿½ï¿½', 'ï¿½ï¿½', 2, 1, 1, '127.1.1.1');
 SELECT * FROM MVC_BOARD;
 
--- dao¿¡ µé¾î°¥ query
--- 1. ±Û¸ñ·Ï(startRow ~ endRow±îÁö)
+-- daoï¿½ï¿½ ï¿½ï¿½î°¥ query
+-- 1. ï¿½Û¸ï¿½ï¿½(startRow ~ endRowï¿½ï¿½ï¿½ï¿½)
 SELECT * FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP;
 SELECT ROWNUM RN, A.* FROM (SELECT * FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP) A;
 SELECT * 
@@ -36,38 +36,39 @@ SELECT *
         FROM (SELECT * FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP) A)
     WHERE RN BETWEEN 2 AND 3;
     
--- 2. ÀüÃ¼ ±Û °¹¼ö
+-- 2. ï¿½ï¿½Ã¼ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 SELECT COUNT(*) FROM MVC_BOARD;
 
--- 3. ¿ø±Û ¾²±â
+-- 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
     VALUES (MVC_BOARD_SEQ.NEXTVAL, 'È«', 'TITLE', NULL, MVC_BOARD_SEQ.CURRVAL, 0, 0, '192.1.1.2');
 
--- 4. BID·Î Á¶È¸¼ö 1 ¿Ã¸®±â
+-- 4. BIDï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ 1 ï¿½Ã¸ï¿½ï¿½ï¿½
 UPDATE MVC_BOARD SET BHIT = BHIT + 1
     WHERE BID = 1;
 
--- 5. BID·Î DTO °¡Á®¿À±â(±Û ³»¿ë »ó¼¼º¸±â, ±Û ¼öÁ¤view, ´äº¯±Ûview)
+-- 5. BIDï¿½ï¿½ DTO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½view, ï¿½äº¯ï¿½ï¿½view)
 SELECT * FROM MVC_BOARD WHERE BID = 1;
 
--- 6. ±Û ¼öÁ¤
-UPDATE MVC_BOARD SET BNAME = 'È«¼öÁ¤',
-                     BTITLE = 'Á¦¸ñ¹Ù²Þ',
-                     BCONTENT = 'º»¹®¹Ù²Þ',
+-- 6. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+UPDATE MVC_BOARD SET BNAME = 'È«ï¿½ï¿½ï¿½ï¿½',
+                     BTITLE = 'ï¿½ï¿½ï¿½ï¿½Ù²ï¿½',
+                     BCONTENT = 'ï¿½ï¿½ï¿½ï¿½ï¿½Ù²ï¿½',
                      BIP = '163.1.1.1'
     WHERE BID = 1;
 
--- 7. ±Û »èÁ¦
+-- 7. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 DELETE FROM MVC_BOARD WHERE BID = 1;
 SELECT * FROM MVC_BOARD;
 
--- 8. ´äº¯±Û ÀúÀåÀü ¼±Çà(STEP a) - 2¹ø±ÛÀÇ ´äº¯
+-- 8. ï¿½äº¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(STEP a) - 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯
 UPDATE MVC_BOARD SET BSTEP = BSTEP + 1
     WHERE BGROUP = 2 AND BSTEP > 0;
 
--- 9. ´äº¯±Û ¾²±â - 2¹ø±ÛÀÇ ´äº¯
+-- 9. ï¿½äº¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯
 INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
-    VALUES (MVC_BOARD_SEQ.NEXTVAL, 'Áø', 'T', NULL, 2, 1, 1, '192.1.2.1');
+    VALUES (MVC_BOARD_SEQ.NEXTVAL, 'ï¿½ï¿½', 'T', NULL, 2, 1, 1, '192.1.2.1');
 
 COMMIT;
 SELECT * FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP;
+select * from MVC_BOARD;

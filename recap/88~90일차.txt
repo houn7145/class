@@ -1,0 +1,35 @@
+Spring Controller
+
+최초 클라이언트로부터 요청이 들어왔을 때 DispatcherServlet이 매핑이 되어 있으므로 DispatcherServlet이 받고 
+HandlerMapping과 HandlerAdapter를 통해 Controller로 진입하게 됨 
+Controller는 요청에 대한 작업을 한 후 ViewResolver를 통해 view를 찾아 view 쪽으로 데이터를 전달, view로 인해 화면에 응답을 하는 구조로 되어있음
+
+Controller를 만들때 class파일에 @Controller 어노테이션을 적용한 뒤 @RequestMapping 어노테이션을 이용해서 요청경로를 지정함 
+
+@RequestMapping에서 요청을 받을 때 get방식과 post방식을 구분 할 수 있음
+value값은 요청경로, method값에는 요청방식이 들어가며 방식이 맞지 않으면 405에러가 발생 
+
+폼데이터 - 데이터 입력을 받아 처리하는 기법
+HttpServletRequest, @RequestParam @ModelAttribute @PathVariable 등을 이용
+
+HttpServletRequest - 기존 jsp와 동일한 방법
+
+JDBC template
+DAO객체를 이용해서 db의 데이터를 이용하는데 이때 매번 같은 동작을 반복하는 부분이 있기에 이런 반복적인 작업을 간단하게 처리하고자 사용
+ex)
+JDBC 드라이버 로드 – DriverManager
+데이터 베이스 연결 – Connection         
+SQL문 실행 – PreparedStatement, ResultSet
+DB 연결 해제 - *.close() 등을 한번에 처리
+
+Spring 파일업로드
+
+Servlet-context.xml에 multipartResolver bean을 생성 
+<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- maxUploadSize : 최대 업로드 가능한 바이트 크기
+		maxInMemorySize : 디스크에 임시파일을 생성하기 전에 메모리에 보관할 수 있는 최대 바이트 크기 1M의 경우1024*1024=10485760,-1은 용량 제한 없음
+	  	defaultEncoding : 요청을 파싱할 때 사용할 캐릭터 인코딩. 기본은 ISO-8859-1 -->
+	  	<beans:property name="maxUploadSize" value="10485760"/>
+</beans:bean>
+
+controller와 service에서 파라미터 값을 받을 때는 MultipartHttpServletRequest를 사용

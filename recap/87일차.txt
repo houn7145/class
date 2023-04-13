@@ -1,0 +1,44 @@
+외부파일을 이용한 설정 
+
+Environment 객체를 이용한 Spring bean 설정
+1. Context 객체를 얻음
+ConfigurableApplicationContext ctx = new GenericXmlApplicationContext();
+2. Context 객체로부터 ctx.getEnvironment()를 하여 Environment 객체를 얻음
+ConfigurableEnvironment env = ctx.getEnvironment();
+3. MutablePropertySources propertySources = env.getPropertySources();
+4. 추가 : propertySources.addLast()
+propertySources.addLast(new ResourcePropertySource("classpath:admin.properties"));
+5. 추출 : env.getProperty() 내가 필요한 정보가 있을 때까지 계속 검색하고 있으면 정보값을 리턴
+System.out.println(env.getProperty("admin.id"));
+
+properties 파일을 이용한 설정  
+Environment 객체를 사용하지 않고 properties 파일을 직접 이용하여 Spring bean을 설정
+applicationCTX.xml 안에 admin.properties와 sub_admin.properties
+
+profile 속성을 이용한 설정 
+동일한 Spring bean을 여러 개 만들어 놓고 상황(환경)에 따라서 적절한 Spring bean을 사용할 수 있게 함
+setActiveProfiles(config)
+profile = “dev” or  profile = “run”
+
+AOP(Aspect Oriented Programming)
+
+프로그래밍을 하다 보면 공통적인 기능이 많이 발생하기에 이러한 공통 기능을 모든 모듈에 적용하기 위한 방법으로 상속을 통한 방법이 있음
+상속도 좋은 방법이기는 하지만 JAVA에서는 다중 상속이 불가하므로 다양한 모듈에 상속 기법을 통한 공통 기능 부여는 한계가있음
+또헌 기능 구현 부분에 핵심 기능 코드와 공통 기능 코드가 섞여 있어 효율성이 떨어짐
+이를 보완하고자 AOP가 생김
+
+AOP방법은 핵심 기능과 공통 기능을 분리 시켜놓고 공통 기능을 필요로 하는 핵심 기능들에서 사용하는 방식 
+
+Aspect : 공통 기능. 예를 들어 로깅같은 기능 자체에 대한 용어
+Advice : 공통 기능을 구현한 객체 메소드
+Join Point : 핵심기능. 공통 기능을 적용할 수 있는 대상
+PointCuts : Join Point의 부분으로 실제 Advice를 적용해야 되는 부분
+Proxy : Advice가 적용되었을 때 만들어지는 객체
+Weaving : Advice와 target이 결합되어서 프록시 객체를 만드는 과정(advice를 핵심 기능에 적용하는 행위)
+
+Advice의 종류
+<aop:before> : 핵심기능 메소드 실행 전에 advice 실행
+<aop:after-returning> : 정상적으로 핵심기능 메소드 실행 후에 advice 실행
+<aop:after-throwing> : 핵심기능 메소드 실행 중 exception 발생시 advice 실행
+<aop:after> : 핵심기능 메소드 실행 후( exception이 발생여부에 상관없이 반드시 ) advice 실행
+<aop:around> : 핵심기능 메소드 실행 전/후 및 exception 발생시 advice 실행 (가장 광범위하게 사용)

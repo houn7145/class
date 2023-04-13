@@ -1,0 +1,22 @@
+Mybatis-1
+Myvatis를 이용하면 jdbcTemplate보다 코드를 더욱 간소화 시킬 수 있음
+java코드가 아닌 xml파일로 db에 접근하며 sql코드를 java코드와 분리시키는데 목적이 있음
+db.properties에 db환경정보를 설정하고 root-context.xml에 dataSource bean -> sqlSessionFactory Bean -> sqlSessionTemplateBean을 순서대로 설정
+servlet-context.xml에 <mybatis-spring:scan base-package="dao 패키지 경로"/>를 추가
+dao 제작시 @Mapper 어노테이션과 service인터페이스에 @Service를 어노테이션을 적용함
+
+xml에서 동적 sql 처리
+OGNL(Object Graph Navigation Language)
+ex)
+
+<if ~  <forEach~
+if 엘리먼트 : 모든 조건에 대해 처리하고 만족하는 조건의 결과를 모두 적용
+동적 QUERY : 위와 같이 SQL 구문이 조건에 따라서 변경되는 것을 말함
+<select id=”selData”>
+	SELECT * FROM EMP 
+	<if test=”ename != null”> WHERE ENAME=#{ENAME} </if>
+</select>
+
+여러 논리의 조건을 sql문에 적용하려면 where 1=1을 적어주고 if 문에 조건을 적어주면 됨
+
+이를 이용하여 11장에서 만들었던 mvc_board를 mybatis 프레임워크화 시켜서 만듦

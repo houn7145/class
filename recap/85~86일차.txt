@@ -1,0 +1,49 @@
+Spring
+JSP언어를 기반으로 다양한 어플리케이션을 제작할 때 효율적으로 빠르게 개발할 수 있는 프레임워크
+코드의 경량화 및 테스트가 쉽다는 점이 특징
+Spring Framework 
+1. 종속성 주입, 트랜잭션 관리, 웹 앱, 데이터 액세스, 메시징 등을 위한 핵심 지원을 제공
+2. DI(Dependency Injection)지원
+3. AOP(Aspect Oriented Programming)지원 : 공통기능을 쉽게 개발하고 관리하는 기능
+4. 연속성과 관련된 다양한 API 지원 : JDBC, myBatis등 데이터 베이스 처리 라이브러리 연동 지원
+Lombok을 사용하면 getter, setter 및 매개변수 생성자와 tostring을 직접 설정하지 않아도 자동으로 잡아줌
+
+DI(Dependency Injection)
+Spring을 이용한 객체 생성과 조립
+interface를 통해 타입을 통일시킬 수 있으며 유지보수가 쉽기 때문에 규모가 큰 프로젝트에선 필수적으로 DI를 사용함
+
+constructor-arg는 매개변수가 있는 생성자를 호출하여 초기화
+property는 매개변수가 없는 생성자를 호출 후 setter메서드를 호출하여 필드값을 초기화
+주입하는 대상이 생성자냐 메소드냐의 차이
+
+1. xml 파일을 이용한 DI 설정법 : AbstractApplicationContext를 통해서 GenericXmlApplicationContext 이용하여 설정
+2. Java를 이용한 DI 설정법 : AnnotationConfigApplicationContex를 이용, Java 클래스에 @Configuration를 설정
+3. xml 파일에 Java 파일을 포함 : java 클래스에 @Configuration를 설정하고 설정한 Java 클래스의 annotation을 해석하기 위해 xml파일에 <context:annotation-config/>를 설정
+4. Java 파일에 xml 파일을 포함 : 3번과 동일하나 GenericXmlApplicationContext 대신 AnnotationConfigApplicationContext를 사용
+
+객체간 의존을 자동으로 연결하기 위해선 @Autowired를 사용함
+@Autowired는 setter위에 쓰는 것이 일반적이나 @Data를 사용할 경우엔 객체 바로 위에 사용
+
+IOC 컨테이너 생성
+GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+파싱
+ctx.load("xml경로");
+객체 생성
+ctx.refresh();
+Bean 사용
+ctx.gerBean();
+IOC 컨테이너 소멸
+ctx.close();
+
+Bean 생명 주기 
+@PostConstruct : Bean 객체를 생성 후 자동 호출
+@PreDestroy : Bean 객체 소멸 전 호출
+
+EnvironmentAware - setEnvironment(Environment environment) : Bean 객체 생성 후 실행
+InitializingBean - afterPropertiesSet() : Bean 객체 생성 후 실행
+DisposableBean - destroy() : Bean 객체 소멸 전 실행
+
+Bean의 scope는 기본적으로 Singleton이며 동일한 객체를 호출함
+scope를 prototype으로 설정하면 새로운 객체를 호출할 수 있음
+
+
